@@ -1,0 +1,103 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
+
+// **************************************************************************
+// InjectableConfigGenerator
+// **************************************************************************
+
+// ignore_for_file: type=lint
+// coverage:ignore-file
+
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:dio/dio.dart' as _i361;
+import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i558;
+import 'package:get_it/get_it.dart' as _i174;
+import 'package:injectable/injectable.dart' as _i526;
+import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
+import 'package:shared_preferences/shared_preferences.dart' as _i460;
+
+import '../../app_provider.dart' as _i30;
+import '../dio_model/di_module.dart' as _i334;
+import '../dio_model/token_interceptors.dart' as _i475;
+import '../local_storage_processes/data/storage_local_data_source_impl.dart'
+    as _i498;
+import '../local_storage_processes/data/token_repo_impl.dart' as _i943;
+import '../local_storage_processes/domain/storage_data_source_contract.dart'
+    as _i94;
+import '../local_storage_processes/domain/token_repo_contract.dart' as _i352;
+import '../local_storage_processes/domain/use_case/get_remember_me_use_case.dart'
+    as _i226;
+import '../local_storage_processes/domain/use_case/get_token_use_case.dart'
+    as _i609;
+import '../local_storage_processes/domain/use_case/logout_user_use_case.dart'
+    as _i694;
+import '../local_storage_processes/domain/use_case/read_and_write_locale_usecase.dart'
+    as _i553;
+import '../local_storage_processes/domain/use_case/read_and_write_tokin_usecase.dart'
+    as _i830;
+
+extension GetItInjectableX on _i174.GetIt {
+  // initializes the registration of main-scope dependencies inside of GetIt
+  Future<_i174.GetIt> init({
+    String? environment,
+    _i526.EnvironmentFilter? environmentFilter,
+  }) async {
+    final gh = _i526.GetItHelper(this, environment, environmentFilter);
+    final diModule = _$DiModule();
+    await gh.factoryAsync<_i460.SharedPreferences>(
+      () => diModule.provideSharedPreferences(),
+      preResolve: true,
+    );
+    gh.lazySingleton<_i361.BaseOptions>(() => diModule.provideBaseOptions());
+    gh.lazySingleton<_i528.PrettyDioLogger>(
+      () => diModule.providePrettyDioLogger(),
+    );
+    gh.lazySingleton<_i558.FlutterSecureStorage>(
+      () => diModule.provideFlutterSecureStorage(),
+    );
+    gh.factory<_i94.StorageDataSourceContract>(
+      () => _i498.StorageLocalDataSourceImpl(
+        gh<_i558.FlutterSecureStorage>(),
+        gh<_i460.SharedPreferences>(),
+      ),
+    );
+    gh.factory<_i553.ReadAndWriteLocaleUsecase>(
+      () =>
+          _i553.ReadAndWriteLocaleUsecase(gh<_i94.StorageDataSourceContract>()),
+    );
+    gh.lazySingleton<_i475.TokenInterceptor>(
+      () => diModule.provideTokenInterceptor(
+        gh<_i94.StorageDataSourceContract>(),
+      ),
+    );
+    gh.lazySingleton<_i830.ReadAndWriteTokinUsecase>(
+      () =>
+          _i830.ReadAndWriteTokinUsecase(gh<_i94.StorageDataSourceContract>()),
+    );
+    gh.factory<_i352.TokenRepoContract>(
+      () => _i943.TokenRepoImpl(gh<_i94.StorageDataSourceContract>()),
+    );
+    gh.factory<_i226.GetRememberMeUseCase>(
+      () => _i226.GetRememberMeUseCase(gh<_i352.TokenRepoContract>()),
+    );
+    gh.factory<_i609.GetTokenUseCase>(
+      () => _i609.GetTokenUseCase(gh<_i352.TokenRepoContract>()),
+    );
+    gh.factory<_i694.LogoutUserUseCase>(
+      () => _i694.LogoutUserUseCase(gh<_i352.TokenRepoContract>()),
+    );
+    gh.factory<_i30.AppProvider>(
+      () => _i30.AppProvider(gh<_i553.ReadAndWriteLocaleUsecase>()),
+    );
+    gh.lazySingleton<_i361.Dio>(
+      () => diModule.provideDio(
+        gh<_i361.BaseOptions>(),
+        gh<_i528.PrettyDioLogger>(),
+        gh<_i475.TokenInterceptor>(),
+      ),
+    );
+    return this;
+  }
+}
+
+class _$DiModule extends _i334.DiModule {}
