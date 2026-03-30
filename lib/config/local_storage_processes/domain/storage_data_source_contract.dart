@@ -9,6 +9,10 @@ abstract class StorageDataSourceContract {
 
   bool? getRememberMe();
 
+  Future<bool?> getFirstTimeLaunched();
+
+  void setFirstTimeLaunched(bool firstTimeLaunched);
+
   Future<BaseResponse<bool>> clearToken();
 
   Future<BaseResponse<bool>> clearRememberMe();

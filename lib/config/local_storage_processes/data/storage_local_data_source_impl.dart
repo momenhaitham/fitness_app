@@ -62,4 +62,20 @@ class StorageLocalDataSourceImpl extends StorageDataSourceContract {
     SharedPreferences share= await SharedPreferences.getInstance();
     await share.setString(AppConsts.languageKey, locale);
   }
+  
+  @override
+  Future<bool?> getFirstTimeLaunched()async {
+    bool? result  =await  _sharedPreferences.getBool(AppConsts.firstTimeLaunchedKey);
+    if(result == null || result == true){
+      return true;
+    }else{
+      return false;
+    }
+  }
+  
+  @override
+  void setFirstTimeLaunched(bool firstTimeLaunched) {
+    _sharedPreferences.setBool(AppConsts.firstTimeLaunchedKey, firstTimeLaunched);
+  }
+  
 }

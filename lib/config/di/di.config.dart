@@ -17,6 +17,8 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 import '../../app_provider.dart' as _i30;
+import '../../features/splash/presentation/view_model/splash_view_model.dart'
+    as _i646;
 import '../dio_model/di_module.dart' as _i334;
 import '../dio_model/token_interceptors.dart' as _i475;
 import '../local_storage_processes/data/storage_local_data_source_impl.dart'
@@ -25,6 +27,8 @@ import '../local_storage_processes/data/token_repo_impl.dart' as _i943;
 import '../local_storage_processes/domain/storage_data_source_contract.dart'
     as _i94;
 import '../local_storage_processes/domain/token_repo_contract.dart' as _i352;
+import '../local_storage_processes/domain/use_case/get_first_time_launched_use_case.dart'
+    as _i554;
 import '../local_storage_processes/domain/use_case/get_remember_me_use_case.dart'
     as _i226;
 import '../local_storage_processes/domain/use_case/get_token_use_case.dart'
@@ -35,6 +39,8 @@ import '../local_storage_processes/domain/use_case/read_and_write_locale_usecase
     as _i553;
 import '../local_storage_processes/domain/use_case/read_and_write_tokin_usecase.dart'
     as _i830;
+import '../local_storage_processes/domain/use_case/set_first_time_launched_use_case.dart'
+    as _i402;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -59,6 +65,16 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i498.StorageLocalDataSourceImpl(
         gh<_i558.FlutterSecureStorage>(),
         gh<_i460.SharedPreferences>(),
+      ),
+    );
+    gh.factory<_i554.GetFirstTimeLaunchedUseCase>(
+      () => _i554.GetFirstTimeLaunchedUseCase(
+        gh<_i94.StorageDataSourceContract>(),
+      ),
+    );
+    gh.factory<_i402.SetFirstTimeLaunchedUseCase>(
+      () => _i402.SetFirstTimeLaunchedUseCase(
+        gh<_i94.StorageDataSourceContract>(),
       ),
     );
     gh.factory<_i553.ReadAndWriteLocaleUsecase>(
@@ -94,6 +110,12 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i361.BaseOptions>(),
         gh<_i528.PrettyDioLogger>(),
         gh<_i475.TokenInterceptor>(),
+      ),
+    );
+    gh.factory<_i646.SplashViewModel>(
+      () => _i646.SplashViewModel(
+        gh<_i226.GetRememberMeUseCase>(),
+        gh<_i554.GetFirstTimeLaunchedUseCase>(),
       ),
     );
     return this;

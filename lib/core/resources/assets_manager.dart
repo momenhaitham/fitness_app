@@ -5,6 +5,7 @@ const String filesPath = "assets/files";
 
 abstract class AssetsImage {
   static const String fitnessSplash = '$imagePath/FitnessSplash.png';
+  static const String onBoardingBackGround = '$imagePath/onBoardingBackGround.png';
 }
 
 abstract class AssetsIcons {
@@ -12,7 +13,7 @@ abstract class AssetsIcons {
 }
 
 abstract class AssetsSvg {
-   static const String fitnessLaunchiconSvg = '$svgPath/FitnessSplash.svg';
+   static const String fitnessLaunchiconSvg = 'assets/svg/FitnessSplash.svg';
 }
 
 abstract class AssetsFiles {

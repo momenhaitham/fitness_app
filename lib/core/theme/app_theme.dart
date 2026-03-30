@@ -97,16 +97,21 @@ InputDecorationTheme _inputDecorationTheme() => InputDecorationTheme(
   floatingLabelBehavior: FloatingLabelBehavior.always,
   floatingLabelStyle: TextStyle(color: AppColors.grayColor),
   errorStyle: TextStyle(color: AppColors.errorColor),
-  enabledBorder: const OutlineInputBorder(
-    borderSide: BorderSide(color: AppColors.grayColor, width: 1),
+  enabledBorder:  OutlineInputBorder(
+    borderRadius:  BorderRadius.circular(40),
+    borderSide: BorderSide(color: AppColors.baseWhiteColor, width: 1),
   ),
-  focusedBorder: const OutlineInputBorder(
-    borderSide: BorderSide(color: AppColors.grayColor, width: 1),
+  focusedBorder:  OutlineInputBorder(
+    
+    borderRadius:  BorderRadius.circular(40),
+    borderSide: BorderSide(color: AppColors.baseWhiteColor, width: 1),
   ),
-  errorBorder: const OutlineInputBorder(
+  errorBorder:  OutlineInputBorder(
+    borderRadius:  BorderRadius.circular(40),
     borderSide: BorderSide(color: AppColors.errorColor, width: 1),
   ),
-  focusedErrorBorder: const OutlineInputBorder(
+  focusedErrorBorder:  OutlineInputBorder(
+    borderRadius:  BorderRadius.circular(40),
     borderSide: BorderSide(color: AppColors.errorColor, width: 1),
   ),
   hintStyle: GoogleFonts.inter(fontWeight: FontWeights.medium,fontSize:FontSize.s14,color: AppColors.lightGrayColor),
