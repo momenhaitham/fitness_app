@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // Generated from translation files
-// Last generated: 2026-03-29 07:18:50.298489
+// Last generated: 2026-03-30 23:10:51.502598
 
 class AppLocale {
   AppLocale._();

@@ -1,3 +1,10 @@
+// To run this script, use the command:
+//dart run tools\generate_locale.dart
+
+
+
+
+
 import 'dart:convert';
 import 'dart:io';
 
