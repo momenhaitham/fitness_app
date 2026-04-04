@@ -17,6 +17,20 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 import '../../app_provider.dart' as _i30;
+import '../../features/auth/register/api/api_client/register_api_client.dart'
+    as _i517;
+import '../../features/auth/register/api/datasources/register_local_data_source_impl.dart'
+    as _i279;
+import '../../features/auth/register/data/datasources/register_local_data_source_contract.dart'
+    as _i34;
+import '../../features/auth/register/data/repositories/register_repository_impl.dart'
+    as _i200;
+import '../../features/auth/register/domain/repositories/register_repository.dart'
+    as _i57;
+import '../../features/auth/register/domain/use_cases/register_usecase.dart'
+    as _i1057;
+import '../../features/auth/register/presentation/view_model/cubit/register_cubit.dart'
+    as _i444;
 import '../../features/splash/presentation/view_model/splash_view_model.dart'
     as _i646;
 import '../dio_model/di_module.dart' as _i334;
@@ -112,11 +126,28 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i475.TokenInterceptor>(),
       ),
     );
+    gh.factory<_i517.RegisterApiClient>(
+      () => _i517.RegisterApiClient(gh<_i361.Dio>()),
+    );
+    gh.factory<_i34.RegisterLocalDataSourceContract>(
+      () => _i279.RegisterLocalDataSourceImpl(gh<_i517.RegisterApiClient>()),
+    );
     gh.factory<_i646.SplashViewModel>(
       () => _i646.SplashViewModel(
         gh<_i226.GetRememberMeUseCase>(),
         gh<_i554.GetFirstTimeLaunchedUseCase>(),
       ),
+    );
+    gh.factory<_i57.RegisterRepository>(
+      () => _i200.RegisterRepositoryImpl(
+        gh<_i34.RegisterLocalDataSourceContract>(),
+      ),
+    );
+    gh.factory<_i1057.RegisterUsecase>(
+      () => _i1057.RegisterUsecase(gh<_i57.RegisterRepository>()),
+    );
+    gh.factory<_i444.RegisterCubit>(
+      () => _i444.RegisterCubit(gh<_i1057.RegisterUsecase>()),
     );
     return this;
   }

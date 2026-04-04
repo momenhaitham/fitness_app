@@ -6,7 +6,6 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class AppProvider extends ChangeNotifier {
-
   String? currentLocale;
   ReadAndWriteLocaleUsecase readAndWriteLocaleUsecase;
   AppProvider(this.readAndWriteLocaleUsecase);
