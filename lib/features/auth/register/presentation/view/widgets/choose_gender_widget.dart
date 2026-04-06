@@ -25,7 +25,7 @@ class _ChooseGenderWidgetState extends State<ChooseGenderWidget> {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
+    
     if(widget.registerCubit.gender == 'male'){
       male = true;
       feMale = false;
@@ -53,8 +53,9 @@ class _ChooseGenderWidgetState extends State<ChooseGenderWidget> {
                   });
                 },
                 child: Container(
-                  height: height * 0.2,
-                  width: width * 0.45,
+                  //height: height * 0.2,
+                  //width: width * 0.45,
+                  padding: EdgeInsets.symmetric(horizontal: 50,vertical: 35),
                   decoration: BoxDecoration(
                     color: male == true ? AppColors.primaryColor : null,
                     border: Border.all(color: Colors.white,width: 2),
@@ -80,8 +81,9 @@ class _ChooseGenderWidgetState extends State<ChooseGenderWidget> {
                   });
                 },
                 child: Container(
-                  height: height * 0.2,
-                  width: width * 0.45,
+                  //height: height * 0.2,
+                  //width: width * 0.45,
+                  padding: EdgeInsets.symmetric(horizontal: 50,vertical: 35),
                   decoration: BoxDecoration(
                     color: feMale == true ? AppColors.primaryColor : null,
                     border: Border.all(color: Colors.white,width: 2),

@@ -6,7 +6,7 @@ class ShowMassageTempEvent extends RegisterTempEvents {
   ShowMassageTempEvent(this.message);
 }
 class ShowLoadingTempEvent extends RegisterTempEvents{
-
+  
 }
 class HideLoadingTempEvent extends RegisterTempEvents{
 
