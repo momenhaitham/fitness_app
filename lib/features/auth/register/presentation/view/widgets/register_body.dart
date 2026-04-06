@@ -10,16 +10,22 @@ import 'package:fitness_app/features/auth/register/presentation/view_model/cubit
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class RegisterBody extends StatelessWidget {
+class RegisterBody extends StatefulWidget {
   RegisterBody({super.key,required this.registerCubit});
   RegisterCubit registerCubit;
 
+  @override
+  State<RegisterBody> createState() => _RegisterBodyState();
+}
+
+class _RegisterBodyState extends State<RegisterBody> {
+  bool _obscure = true;
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     //var width = MediaQuery.of(context).size.width;
      return Form(
-      key: registerCubit.formKey,
+      key: widget.registerCubit.formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -34,7 +40,7 @@ class RegisterBody extends StatelessWidget {
                 SizedBox(height: height * AppSize.s0_02,),
                 TextFormField(
                   validator: (value) =>  AppValidators.validateFirstName(value,context),
-                  controller: registerCubit.firstNameController,
+                  controller: widget.registerCubit.firstNameController,
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.person_outline,color: AppColors.baseWhiteColor,),
                     hintText: AppLocale.first_name.tr(),
@@ -42,7 +48,7 @@ class RegisterBody extends StatelessWidget {
                 ),
                 SizedBox(height: height * AppSize.s0_02,),
                 TextFormField(
-                  controller: registerCubit.lastNameController,
+                  controller: widget.registerCubit.lastNameController,
                   validator: (value) =>  AppValidators.validateLastName(value,context),
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.person_outline,color: AppColors.baseWhiteColor,),
@@ -51,7 +57,7 @@ class RegisterBody extends StatelessWidget {
                 ),
                 SizedBox(height: height * AppSize.s0_02,),
                 TextFormField(
-                  controller: registerCubit.emailController,
+                  controller: widget.registerCubit.emailController,
                   validator: (value) =>  AppValidators.validateEmail(value,context),
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.email_outlined,color: AppColors.baseWhiteColor,),
@@ -60,9 +66,15 @@ class RegisterBody extends StatelessWidget {
                 ),
                 SizedBox(height: height * AppSize.s0_02,),
                 TextFormField(
+                  
                   validator: (value) =>  AppValidators.validatePassword(value,context),
-                  controller: registerCubit.passwordController,
+                  controller: widget.registerCubit.passwordController,
+                  obscureText: _obscure,
                   decoration: InputDecoration(
+                    suffixIcon: IconButton(
+                        icon: Icon(_obscure ? Icons.visibility_off : Icons.visibility,color: AppColors.primaryColor,),
+                        onPressed: () => setState(() => _obscure = !_obscure),
+                      ),
                     prefixIcon: Icon(Icons.lock_outline_rounded,color: AppColors.baseWhiteColor,),
                     hintText: AppLocale.password.tr(),
                   ),
@@ -72,9 +84,9 @@ class RegisterBody extends StatelessWidget {
                   height: height * AppSize.s0_05,
                   width: double.infinity,
                   child: ElevatedButton(onPressed: () {
-                    print(registerCubit.lastNameController.text);
-                    if(registerCubit.formKey.currentState!.validate()){
-                      registerCubit.doIntent(RegisterNextStep());
+                    print(widget.registerCubit.lastNameController.text);
+                    if(widget.registerCubit.formKey.currentState!.validate()){
+                      widget.registerCubit.doIntent(RegisterNextStep());
                     }
                   }, child: Text(AppLocale.register.tr(),style: Theme.of(context).textTheme.titleLarge,)),
                 ),
