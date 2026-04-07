@@ -36,5 +36,8 @@
   "userNameRequired": "اسم المستخدم مطلوب",
   "phoneNumberRequired": "رقم الهاتف مطلوب",
   "firstNameRequired": "الاسم الأول مطلوب",
-  "lastNameRequired": "اسم العائلة مطلوب"
+  "lastNameRequired": "اسم العائلة مطلوب",
+  "explore": "استكشاف",
+  "workouts": "تمارين",
+  "profile": "الملف الشخصي"
 }

@@ -10,6 +10,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:dio/dio.dart' as _i361;
+import 'package:flutter/material.dart' as _i409;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i558;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
@@ -17,6 +18,8 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 import '../../app_provider.dart' as _i30;
+import '../../features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart'
+    as _i1038;
 import '../../features/splash/presentation/view_model/splash_view_model.dart'
     as _i646;
 import '../dio_model/di_module.dart' as _i334;
@@ -76,6 +79,10 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i402.SetFirstTimeLaunchedUseCase(
         gh<_i94.StorageDataSourceContract>(),
       ),
+    );
+    gh.factoryParam<_i1038.AppSectionsCubit, _i409.PageController?, dynamic>(
+      (pageController, _) =>
+          _i1038.AppSectionsCubit(pageController: pageController),
     );
     gh.factory<_i553.ReadAndWriteLocaleUsecase>(
       () =>

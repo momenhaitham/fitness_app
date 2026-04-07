@@ -36,5 +36,8 @@
   "userNameRequired": "Username is required",
   "phoneNumberRequired": "Phone number is required",
   "firstNameRequired": "First name is required",
-  "lastNameRequired": "Last name is required"
+  "lastNameRequired": "Last name is required",
+  "explore": "Explore",
+  "workouts": "Workouts",
+  "profile": "Profile"
 }
