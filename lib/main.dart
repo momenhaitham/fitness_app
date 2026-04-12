@@ -19,7 +19,7 @@ void main() async {
   AppProvider appProvider = getIt<AppProvider>();
   runApp(
     ChangeNotifierProvider(
-      create: (context) => appProvider..getCurrentLocale(context),
+      create: (context) => appProvider,
       child: EasyLocalization(
       supportedLocales: [Locale('ar'),Locale('en')],
       path: 'assets/translations',
