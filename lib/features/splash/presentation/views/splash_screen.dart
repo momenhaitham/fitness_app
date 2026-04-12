@@ -39,16 +39,16 @@ class _SplashScreenState extends State<SplashScreen> {
       switch (event) {
         case NavigateToLoginEvent():
           if (mounted) {
-            Navigator.pushReplacementNamed(context, Routes.login);
+            Navigator.pushReplacementNamed(context, Routes.register);
           }
           break;
         case NavigateToMainFlowEvent():
           if (mounted) {
-            Navigator.pushReplacementNamed(context, Routes.home);
+            Navigator.pushReplacementNamed(context, Routes.register);
           }
         case NavigateToOnboardingEvent():
           if (mounted) {
-            Navigator.pushReplacementNamed(context, Routes.onboarding);
+            Navigator.pushReplacementNamed(context, Routes.register);
           }
       }
     });

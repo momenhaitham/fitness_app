@@ -9,12 +9,12 @@ class ShowDialogUtils {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text("loading".tr(), style: Theme.of(context).textTheme.headlineMedium),
+          title: Text("loading".tr(), style: Theme.of(context).textTheme.headlineLarge),
           content: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 100.0),
             child: CircularProgressIndicator(color: AppColors.primaryColor),
           ),
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.lightBlack,
         );
       },
       barrierDismissible: false,
@@ -63,7 +63,7 @@ class ShowDialogUtils {
           title: Text(title ?? "", style: Theme.of(context).textTheme.headlineMedium),
           content: Text(content ?? '', style: Theme.of(context).textTheme.headlineMedium),
           actions: actions,
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.lightBlack,
         );
       },
     );
