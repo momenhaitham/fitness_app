@@ -17,6 +17,12 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 import '../../app_provider.dart' as _i30;
+import '../../features/exercise/api/api_client/exercise_api_client.dart'
+    as _i990;
+import '../../features/exercise/api/datasources/exercise_remote_data_source_impl.dart'
+    as _i831;
+import '../../features/exercise/data/datasources/exercise_remote_data_source_contract.dart'
+    as _i511;
 import '../../features/splash/presentation/view_model/splash_view_model.dart'
     as _i646;
 import '../dio_model/di_module.dart' as _i334;
@@ -77,6 +83,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i94.StorageDataSourceContract>(),
       ),
     );
+    gh.factory<_i511.ExerciseRemoteDataSourceContract>(
+      () => _i831.ExerciseRemoteDataSourceImpl(gh<_i990.ExerciseApiClient>()),
+    );
     gh.factory<_i553.ReadAndWriteLocaleUsecase>(
       () =>
           _i553.ReadAndWriteLocaleUsecase(gh<_i94.StorageDataSourceContract>()),
@@ -111,6 +120,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i528.PrettyDioLogger>(),
         gh<_i475.TokenInterceptor>(),
       ),
+    );
+    gh.factory<_i990.ExerciseApiClient>(
+      () => _i990.ExerciseApiClient(gh<_i361.Dio>()),
     );
     gh.factory<_i646.SplashViewModel>(
       () => _i646.SplashViewModel(

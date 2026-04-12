@@ -4,4 +4,5 @@ abstract class Routes {
   static const String home = "homeScreen";
   static const String onboarding = "onboardingScreen";
   static const String forgetPassword = "forgetPasswordScreen";
+  static const String excirse = "excirseScreen";
 }
