@@ -36,5 +36,12 @@
   "userNameRequired": "اسم المستخدم مطلوب",
   "phoneNumberRequired": "رقم الهاتف مطلوب",
   "firstNameRequired": "الاسم الأول مطلوب",
-  "lastNameRequired": "اسم العائلة مطلوب"
+  "lastNameRequired": "اسم العائلة مطلوب",
+  "invalidCode": "رمز التحقق غير صحيح",
+  "messageSentSuccessfully": "تم إرسال الرسالة بنجاح",
+  "completeFields": "يرجى إكمال جميع الحقول",
+  "passwordUpdatedSuccessfully": "تم تحديث كلمة المرور بنجاح",
+  "sentOTP": "أرسل رمز التحقق",
+  "enterYourEmail":"أدخل بريدك الإلكتروني"
+
 }

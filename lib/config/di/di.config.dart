@@ -17,6 +17,24 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 import '../../app_provider.dart' as _i30;
+import '../../features/auth/forget_password/api/api_client/forget_password_api_client.dart'
+    as _i478;
+import '../../features/auth/forget_password/api/data_sources/forget_password_data_source_impl.dart'
+    as _i1058;
+import '../../features/auth/forget_password/data/data_sources/forget_password_data_source.dart'
+    as _i253;
+import '../../features/auth/forget_password/data/models/repo/forget_password_repo_impl.dart'
+    as _i569;
+import '../../features/auth/forget_password/domain/repo/forget_password_repo.dart'
+    as _i484;
+import '../../features/auth/forget_password/domain/use_cases/forget_password_use_case.dart'
+    as _i913;
+import '../../features/auth/forget_password/domain/use_cases/reset_password_use_case.dart'
+    as _i22;
+import '../../features/auth/forget_password/domain/use_cases/verify_code_use_case.dart'
+    as _i513;
+import '../../features/auth/forget_password/presentation/view_model/forget_password_cubit/forget_password_cubit.dart'
+    as _i294;
 import '../../features/splash/presentation/view_model/splash_view_model.dart'
     as _i646;
 import '../dio_model/di_module.dart' as _i334;
@@ -112,10 +130,37 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i475.TokenInterceptor>(),
       ),
     );
+    gh.factory<_i478.ForgetPasswordApiClient>(
+      () => _i478.ForgetPasswordApiClient(gh<_i361.Dio>()),
+    );
     gh.factory<_i646.SplashViewModel>(
       () => _i646.SplashViewModel(
         gh<_i226.GetRememberMeUseCase>(),
         gh<_i554.GetFirstTimeLaunchedUseCase>(),
+      ),
+    );
+    gh.factory<_i253.ForgetPasswordDataSource>(
+      () => _i1058.ForgetPasswordDataSourceImpl(
+        gh<_i478.ForgetPasswordApiClient>(),
+      ),
+    );
+    gh.factory<_i484.ForgetPasswordRepo>(
+      () => _i569.ForgetPasswordRepoImpl(gh<_i253.ForgetPasswordDataSource>()),
+    );
+    gh.factory<_i913.ForgetPasswordUseCase>(
+      () => _i913.ForgetPasswordUseCase(gh<_i484.ForgetPasswordRepo>()),
+    );
+    gh.factory<_i22.ResetPasswordUseCase>(
+      () => _i22.ResetPasswordUseCase(gh<_i484.ForgetPasswordRepo>()),
+    );
+    gh.factory<_i513.VerifyCodeUseCase>(
+      () => _i513.VerifyCodeUseCase(gh<_i484.ForgetPasswordRepo>()),
+    );
+    gh.factory<_i294.ForgetPasswordCubit>(
+      () => _i294.ForgetPasswordCubit(
+        forgetPasswordUseCase: gh<_i913.ForgetPasswordUseCase>(),
+        verifyCodeUseCase: gh<_i513.VerifyCodeUseCase>(),
+        resetPasswordUseCase: gh<_i22.ResetPasswordUseCase>(),
       ),
     );
     return this;
