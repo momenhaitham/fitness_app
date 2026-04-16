@@ -6,7 +6,7 @@
   "enterEmail": "Enter your email",
   "enterPassword": "Enter your password",
   "password": "Password",
-  "forgetPassword": "Forget Password ?",
+  "forgetPassword": "Forget Password ",
   "rememberMe": "Remember me",
   "continueAsGuest": "Continue as Guest",
   "dontHaveAnAccount": "Don't have an account?",
@@ -36,5 +36,11 @@
   "userNameRequired": "Username is required",
   "phoneNumberRequired": "Phone number is required",
   "firstNameRequired": "First name is required",
-  "lastNameRequired": "Last name is required"
+  "lastNameRequired": "Last name is required",
+   "invalidCode": "Invalid verification code",
+  "messageSentSuccessfully": "Message sent successfully",
+  "completeFields": "Please complete all fields",
+  "passwordUpdatedSuccessfully": "Password updated successfully",
+  "sentOTP": "Send OTP",
+  "enterYourEmail": "Enter Your Email"
 }
