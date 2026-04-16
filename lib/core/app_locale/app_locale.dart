@@ -15,11 +15,11 @@ class AppLocale {
   static const String email = 'email';
   static const String emailInvalid = 'emailInvalid';
   static const String emailRequired = 'emailRequired';
-  static const String enterEmail = 'enterEmail';
+  static const String enterEmail = 'Enter Email';
   static const String enterPassword = 'enterPassword';
   static const String error_invalid_credentials = 'error_invalid_credentials';
   static const String firstNameRequired = 'firstNameRequired';
-  static const String forgetPassword = 'forgetPassword';
+  static const String forgetPassword = 'Forget Password';
   static const String forgot_password = 'forgot_password';
   static const String lastNameRequired = 'lastNameRequired';
   static const String loading = 'loading';
@@ -43,4 +43,11 @@ class AppLocale {
   static const String userNameRequired = 'userNameRequired';
   static const String verifyEmail = 'verifyEmail';
   static const String welcome = 'welcome';
+  static const String invalidCode = 'invalidCode';
+  static const String messageSentSuccessfully = 'messageSentSuccessfully';
+  static const String completeFields = 'completeFields';
+  static const String enterYourEmail = 'Enter Your Email';
+  static const String sentOTP = 'Sent OTP';
+  static const String passwordUpdatedSuccessfully =
+      'passwordUpdatedSuccessfully';
 }
