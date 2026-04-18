@@ -50,4 +50,14 @@ class AppLocale {
   static const String sentOTP = 'Sent OTP';
   static const String passwordUpdatedSuccessfully =
       'passwordUpdatedSuccessfully';
+  static const String otpCode = 'OTP CODE';
+  static const String enterOTP = 'Enter Your OTP Check your email';
+  static const String confirm = 'Confirm';
+  static const String didntRecieveVerificationCode =
+      "Didn't Receive Verification Code?";
+  static const String resendCode = 'Resend Code?';
+  static const String resetPasswordTitle = 'Make Sure Its 8 Characters Or More';
+  static const String resetPasswordHeader = 'Create New Password';
+  static const String confirmPassword = 'Confirm Password';
+  static const String passwordsDoNotMatch = 'Passwords Do Not Match';
 }
