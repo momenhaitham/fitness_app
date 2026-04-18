@@ -15,15 +15,15 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   configureDependencies();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  
+
   AppProvider appProvider = getIt<AppProvider>();
   runApp(
     ChangeNotifierProvider(
       create: (context) => appProvider,
       child: EasyLocalization(
-      supportedLocales: [Locale('ar'),Locale('en')],
-      path: 'assets/translations',
-      child: MainApp()
+        supportedLocales: [Locale('ar'), Locale('en')],
+        path: 'assets/translations',
+        child: MainApp(),
       ),
     ),
   );
@@ -58,7 +58,7 @@ class _MainAppState extends State<MainApp> {
         theme: AppTheme.lightTheme,
         onGenerateRoute: RouteGenerator.getRoutes,
         locale: context.locale,
-        initialRoute: Routes.splash,
+        initialRoute: Routes.forgetPassword,
       ),
     );
   }

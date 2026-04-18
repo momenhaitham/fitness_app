@@ -2,6 +2,7 @@
 // Generated at: 2026-03-29 07:26:29.112315
 
 import 'package:fitness_app/core/routes/app_route.dart';
+import 'package:fitness_app/features/auth/forget_password/presentation/view/screens/forgetpassword_screen.dart';
 import 'package:fitness_app/features/on_boarding/presentation/views/on_boarding_screen.dart';
 import 'package:fitness_app/features/splash/presentation/views/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class RouteGenerator {
     switch (settings.name) {
       case Routes.splash:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
-        
+
       case Routes.login:
         // TODO: Uncomment when LoginScreen is ready
         // return MaterialPageRoute(builder: (_) => const LoginScreen());
@@ -29,11 +30,9 @@ class RouteGenerator {
         return unDefinedRoute();
       case Routes.onboarding:
         return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
-        
+
       case Routes.forgetPassword:
-        // TODO: Uncomment when ForgetPasswordScreen is ready
-        // return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
-        return unDefinedRoute();
+        return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
       default:
         return unDefinedRoute();
     }
