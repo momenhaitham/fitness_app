@@ -6,9 +6,10 @@ import 'package:fitness_app/features/on_boarding/presentation/views/on_boarding_
 import 'package:fitness_app/features/splash/presentation/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'package:fitness_app/features/login/presentation/view/pages/login_page.dart';
+
 // TODO: Uncomment imports when screens are ready:
 // import 'package:fitness_app/feature/splash/presentation/views/splash_screen.dart';
-// import 'package:fitness_app/feature/login/presentation/views/login_screen.dart';
 // import 'package:fitness_app/feature/home/presentation/views/home_screen.dart';
 // import 'package:fitness_app/feature/onboarding/presentation/views/onboarding_screen.dart';
 // import 'package:fitness_app/feature/forget_password/presentation/views/forget_password_screen.dart';
@@ -20,9 +21,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const SplashScreen());
         
       case Routes.login:
-        // TODO: Uncomment when LoginScreen is ready
-        // return MaterialPageRoute(builder: (_) => const LoginScreen());
-        return unDefinedRoute();
+        return MaterialPageRoute(builder: (_) => const LoginPage());
       case Routes.home:
         // TODO: Uncomment when HomeScreen is ready
         // return MaterialPageRoute(builder: (_) => const HomeScreen());

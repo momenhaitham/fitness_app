@@ -17,6 +17,18 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 import '../../app_provider.dart' as _i30;
+import '../../features/login/api/api_client/login_api_client.dart' as _i395;
+import '../../features/login/api/datasources/login_remote_data_source_impl.dart'
+    as _i904;
+import '../../features/login/data/datasources/login_remote_data_source_contract.dart'
+    as _i736;
+import '../../features/login/data/repositories/login_repository_impl.dart'
+    as _i1066;
+import '../../features/login/domain/repositories/login_repository.dart'
+    as _i902;
+import '../../features/login/domain/use_cases/login_use_case.dart' as _i191;
+import '../../features/login/presentation/view_model/cubit/login_cubit.dart'
+    as _i753;
 import '../../features/splash/presentation/view_model/splash_view_model.dart'
     as _i646;
 import '../dio_model/di_module.dart' as _i334;
@@ -112,11 +124,27 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i475.TokenInterceptor>(),
       ),
     );
+    gh.factory<_i395.LoginApiClient>(
+      () => _i395.LoginApiClient(gh<_i361.Dio>()),
+    );
     gh.factory<_i646.SplashViewModel>(
       () => _i646.SplashViewModel(
         gh<_i226.GetRememberMeUseCase>(),
         gh<_i554.GetFirstTimeLaunchedUseCase>(),
       ),
+    );
+    gh.factory<_i736.LoginRemoteDataSourceContract>(
+      () => _i904.LoginRemoteDataSourceImpl(gh<_i395.LoginApiClient>()),
+    );
+    gh.factory<_i902.LoginRepository>(
+      () =>
+          _i1066.LoginRepositoryImpl(gh<_i736.LoginRemoteDataSourceContract>()),
+    );
+    gh.factory<_i191.LoginUseCase>(
+      () => _i191.LoginUseCase(gh<_i902.LoginRepository>()),
+    );
+    gh.factory<_i753.LoginCubit>(
+      () => _i753.LoginCubit(gh<_i191.LoginUseCase>()),
     );
     return this;
   }
