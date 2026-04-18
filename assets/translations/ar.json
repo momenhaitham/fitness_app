@@ -42,6 +42,14 @@
   "completeFields": "يرجى إكمال جميع الحقول",
   "passwordUpdatedSuccessfully": "تم تحديث كلمة المرور بنجاح",
   "sentOTP": "أرسل رمز التحقق",
-  "enterYourEmail":"أدخل بريدك الإلكتروني"
-
+  "enterYourEmail": "أدخل بريدك الإلكتروني",
+  "otpCode": "رمز التحقق",
+  "enterOTP": "أدخل رمز التحقق، تحقق من بريدك الإلكتروني",
+  "confirm": "تأكيد",
+  "didntRecieveVerificationCode": "لم تستلم رمز التحقق؟",
+  "resendCode": "إعادة إرسال الرمز؟",
+  "resetPasswordTitle": "تأكد من أنه 8 أحرف أو أكثر",
+  "resetPasswordHeader": "إنشاء كلمة مرور جديدة",
+  "confirmPassword": "تأكيد كلمة المرور",
+  "passwordsDoNotMatch": "كلمتا المرور غير متطابقتين"
 }

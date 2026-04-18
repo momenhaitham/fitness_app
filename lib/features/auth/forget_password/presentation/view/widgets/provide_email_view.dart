@@ -107,7 +107,7 @@ class ProvideEmailViewState extends State<ProvideEmailView> {
             Container(
               padding: EdgeInsets.all(25),
               decoration: BoxDecoration(
-                color: AppColors.lightBlack,
+                color: AppColors.lightBlack.withOpacity(0.85),
                 borderRadius: BorderRadius.circular(50),
               ),
               child: Column(
