@@ -1,6 +1,7 @@
-import 'package:fitness_app/core/app_locale/app_locale.dart';
 import 'package:fitness_app/core/resources/assets_manager.dart';
-import 'package:fitness_app/features/auth/forget_password/presentation/view/screens/provide_email_view.dart';
+import 'package:fitness_app/features/auth/forget_password/presentation/view/widgets/provide_email_view.dart';
+import 'package:fitness_app/features/auth/forget_password/presentation/view/widgets/reset_password_view.dart';
+import 'package:fitness_app/features/auth/forget_password/presentation/view/widgets/verify_code_view.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view_model/forget_password_cubit/forget_password_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -61,8 +62,18 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                         });
                       },
                       children: [
+                        ResetPasswordView(
+                          onSuccess: () {
+                            _navigateToNext();
+                          },
+                        ),
                         ProvideEmailView(
                           onSuccess: (email) {
+                            _navigateToNext();
+                          },
+                        ),
+                        VerifyCodeView(
+                          onSuccess: () {
                             _navigateToNext();
                           },
                         ),
