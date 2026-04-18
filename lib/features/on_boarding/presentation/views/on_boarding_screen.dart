@@ -1,8 +1,8 @@
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fitness_app/core/app_locale/app_locale.dart';
 import 'package:fitness_app/core/resources/assets_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:fitness_app/core/routes/app_route.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -24,10 +24,28 @@ class OnBoardingScreen extends StatelessWidget {
               width: double.infinity,
               fit: BoxFit.cover,
             ),
+            Center(
+              child: Container(
+              height: 50,
+              width: 150,
+              decoration: BoxDecoration(
+                color: Colors.pinkAccent,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: IconButton(
+                icon: Text(
+                  "Home",
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+                onPressed: () {
+                  Navigator.pushNamed(context, Routes.home);
+                },
+              ),
+            ),
+            ),
           ],
-        )
+        ),
       ),
     );
   }
-
 }

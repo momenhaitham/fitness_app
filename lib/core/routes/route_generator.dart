@@ -2,6 +2,7 @@
 // Generated at: 2026-03-29 07:26:29.112315
 
 import 'package:fitness_app/core/routes/app_route.dart';
+import 'package:fitness_app/features/home/presentation/view/screen/home_Page.dart';
 import 'package:fitness_app/features/on_boarding/presentation/views/on_boarding_screen.dart';
 import 'package:fitness_app/features/splash/presentation/views/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -25,8 +26,8 @@ class RouteGenerator {
         return unDefinedRoute();
       case Routes.home:
         // TODO: Uncomment when HomeScreen is ready
-        // return MaterialPageRoute(builder: (_) => const HomeScreen());
-        return unDefinedRoute();
+         return MaterialPageRoute(builder: (_) => const HomePage());
+        //return unDefinedRoute();
       case Routes.onboarding:
         return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
         
