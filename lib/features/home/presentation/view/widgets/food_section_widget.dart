@@ -41,7 +41,7 @@ class FoodSectionWidget extends StatelessWidget {
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: categories.length,
-            separatorBuilder: (_, __) => const SizedBox(width: 12),
+            separatorBuilder: (_, _) => const SizedBox(width: 12),
             itemBuilder: (context, index) {
               final category = categories[index];
               return ClipRRect(
@@ -54,7 +54,7 @@ class FoodSectionWidget extends StatelessWidget {
                       child: Image.network(
                         category.imageUrl,
                         fit: BoxFit.cover,
-                        errorBuilder: (_, __, ___) => Container(
+                        errorBuilder: (_, _, _) => Container(
                           color: Colors.grey[850],
                           child: const Icon(Icons.restaurant,
                               color: Colors.orange, size: 32),

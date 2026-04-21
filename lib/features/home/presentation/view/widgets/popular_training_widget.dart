@@ -66,7 +66,7 @@ class PopularTrainingSectionWidget extends StatelessWidget {
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: _items.length,
-            separatorBuilder: (_, __) => const SizedBox(width: 14),
+            separatorBuilder: (_, _) => const SizedBox(width: 14),
             itemBuilder: (context, index) =>
                 _TrainingCard(item: _items[index]),
           ),
@@ -94,7 +94,7 @@ class _TrainingCard extends StatelessWidget {
             child: Image.network(
               item.imageUrl,
               fit: BoxFit.cover,
-              errorBuilder: (_, __, ___) => Container(
+              errorBuilder: (_, _, _) => Container(
                 color: const Color(0xFF1E1E1E),
                 child: const Icon(Icons.fitness_center,
                     color: Colors.orange, size: 40),

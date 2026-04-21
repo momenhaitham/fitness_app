@@ -55,7 +55,7 @@ class _WorkoutSectionWidgetState extends State<WorkoutSectionWidget> {
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: widget.musclesGroup.length,
-            separatorBuilder: (_, __) => const SizedBox(width: 8),
+            separatorBuilder: (_, _) => const SizedBox(width: 8),
             itemBuilder: (context, index) {
               final isSelected = index == _selectedIndex;
               return GestureDetector(
@@ -93,7 +93,7 @@ class _WorkoutSectionWidgetState extends State<WorkoutSectionWidget> {
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: 4, // static placeholders
-            separatorBuilder: (_, __) => const SizedBox(width: 12),
+            separatorBuilder: (_, _) => const SizedBox(width: 12),
             itemBuilder: (context, index) {
               return _WorkoutCard(
                 name: selected?.name ?? '',
@@ -133,7 +133,7 @@ class _WorkoutCard extends StatelessWidget {
             child: Image.network(
               _placeholderImages[index % _placeholderImages.length],
               fit: BoxFit.cover,
-              errorBuilder: (_, __, ___) => Container(
+              errorBuilder: (_, _, _) => Container(
                 color: Colors.grey[850],
                 child: const Icon(Icons.fitness_center,
                     color: Colors.orange, size: 32),

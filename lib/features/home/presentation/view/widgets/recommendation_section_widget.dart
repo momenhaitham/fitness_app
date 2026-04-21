@@ -25,7 +25,7 @@ class RecommendationSectionWidget extends StatelessWidget {
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: muscles.length,
-            separatorBuilder: (_, __) => const SizedBox(width: 12),
+            separatorBuilder: (_, _) => const SizedBox(width: 12),
             itemBuilder: (context, index) {
               final muscle = muscles[index];
               return ClipRRect(
@@ -41,7 +41,7 @@ class RecommendationSectionWidget extends StatelessWidget {
                           ? Image.network(
                               muscle.image!,
                               fit: BoxFit.cover,
-                              errorBuilder: (_, __, ___) => const Icon(
+                              errorBuilder: (_, _, _) => const Icon(
                                 Icons.fitness_center,
                                 color: Colors.orange,
                                 size: 36,

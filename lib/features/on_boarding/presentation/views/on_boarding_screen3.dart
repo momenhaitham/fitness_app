@@ -1,17 +1,19 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:fitness_app/core/app_locale/app_locale.dart';
 import 'package:fitness_app/core/resources/app_colors.dart';
 import 'package:fitness_app/core/resources/assets_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness_app/core/routes/app_route.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class OnBoardingScreen extends StatefulWidget {
-  const OnBoardingScreen({super.key});
+class OnBoardingScreen3 extends StatefulWidget {
+  const OnBoardingScreen3({super.key});
 
   @override
-  State<OnBoardingScreen> createState() => _OnBoardingScreenState();
+  State<OnBoardingScreen3> createState() => _OnBoardingScreen3State();
 }
 
-class _OnBoardingScreenState extends State<OnBoardingScreen> {
+class _OnBoardingScreen3State extends State<OnBoardingScreen3> {
   @override
   Widget build(BuildContext context) {
     int currentIndex = 0;
@@ -41,7 +43,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         child: Stack(
           alignment: Alignment.center,
           children: [
-         
             Image.asset(
               AssetsImage.onBoardingBackGround,
               height: double.infinity,
@@ -50,7 +51,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
             Column(
               children: [
-                Image.asset("assets/images/onboardingimage1.png"),
+                const SizedBox(height: 90),
+
+                Image.asset("assets/images/onboardingimage3.png"),
                 const SizedBox(height: 0),
                 Container(
                   padding: EdgeInsets.symmetric(
@@ -59,7 +62,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   ),
                   decoration: BoxDecoration(
                     color: Colors.black.withOpacity(0.45),
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                    ),
                     border: Border.all(
                       color: Colors.white.withOpacity(0.08),
                       width: 1,
@@ -93,27 +99,54 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       ),
 
                       const SizedBox(height: 24),
-                      Container(
-                        height: 50,
-                        width: 350,
-                        decoration: BoxDecoration(
-                          color: AppColors.primaryColor,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: IconButton(
-                          icon: Text(
-                            "Next",
-                            style: Theme.of(context).textTheme.headlineMedium,
+                      Row(
+                        children: [
+                          Container(
+                            height: 50,
+                            width: 75,
+                            decoration: BoxDecoration(
+                              color: AppColors.primaryColor,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: IconButton(
+                              icon: Text(
+                                "Back",
+                                style: Theme.of(
+                                  context,
+                                ).textTheme.headlineMedium,
+                              ),
+                              onPressed: () {
+                                Navigator.pushNamed(
+                                  context,
+                                  Routes.onboarding2,
+                                );
+                              },
+                            ),
                           ),
-                          onPressed: () {
-                            Navigator.pushNamed(context, Routes.onboarding2);
-                          },
-                        ),
-                        
+                          SizedBox(width: 205),
+                          Container(
+                            height: 50,
+                            width: 75,
+                            decoration: BoxDecoration(
+                              color: AppColors.primaryColor,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: IconButton(
+                              icon: Text(
+                                "Next",
+                                style: Theme.of(
+                                  context,
+                                ).textTheme.headlineMedium,
+                              ),
+                              onPressed: () {
+                                Navigator.pushNamed(context, Routes.home);
+                              },
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                
                 ),
               ],
             ),

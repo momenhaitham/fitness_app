@@ -169,8 +169,9 @@ class CategorySectionWidget extends StatelessWidget {
     if (n.contains('yoga')) return Icons.self_improvement;
     if (n.contains('run') || n.contains('cardio')) return Icons.directions_run;
     if (n.contains('swim')) return Icons.pool;
-    if (n.contains('bike') || n.contains('cycling'))
+    if (n.contains('bike') || n.contains('cycling')) {
       return Icons.directions_bike;
+    }
     return Icons.sports_gymnastics;
   }
 
