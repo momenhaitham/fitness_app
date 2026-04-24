@@ -3,9 +3,7 @@
 
 import 'package:fitness_app/core/routes/app_route.dart';
 import 'package:fitness_app/features/home/presentation/view/screen/home_Page.dart';
-import 'package:fitness_app/features/on_boarding/presentation/views/on_boarding_screen.dart';
-import 'package:fitness_app/features/on_boarding/presentation/views/on_boarding_screen2.dart';
-import 'package:fitness_app/features/on_boarding/presentation/views/on_boarding_screen3.dart';
+import 'package:fitness_app/features/on_boarding/presentation/views/screen/on_boarding_screen.dart';
 import 'package:fitness_app/features/splash/presentation/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -33,11 +31,11 @@ class RouteGenerator {
       case Routes.onboarding:
         return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
         
-      case Routes.onboarding2:
-        return MaterialPageRoute(builder: (_) => const OnBoardingScreen2());
+      // case Routes.onboarding2:
+      //   return MaterialPageRoute(builder: (_) => const OnBoardingScreen2());
         
-      case Routes.onboarding3:
-        return MaterialPageRoute(builder: (_) => const OnBoardingScreen3());
+      // case Routes.onboarding3:
+      //   return MaterialPageRoute(builder: (_) => const OnBoardingScreen3());
         
       case Routes.forgetPassword:
         // TODO: Uncomment when ForgetPasswordScreen is ready
