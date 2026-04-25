@@ -12,21 +12,26 @@ class ExerciseRemoteDataSourceImpl implements ExerciseRemoteDataSourceContract {
   ExerciseRemoteDataSourceImpl(this.exerciseApiClient);
 
   @override
-  Future<BaseResponse<GetAllLevelsDto>> getAllLevels(String? currentLocale)async {
-    return await executeApi(() => exerciseApiClient.getAllLevels(currentLocale),);
+  Future<BaseResponse<GetAllLevelsDto>> getAllLevels({
+    String? currentLocale,
+  }) async {
+    return await executeApi(
+      () => exerciseApiClient.getAllLevels(currentLocale),
+    );
   }
 
   @override
-  Future<BaseResponse<GetExercisesDto>> getExercises(
+  Future<BaseResponse<GetExercisesDto>> getExercises({
     String? currentLocale,
     String? muscleId,
     String? difficultyLevelId,
-  )async {
-
-    return await executeApi(() => exerciseApiClient.getExercises(
-    currentLocale: currentLocale,
-    muscleId: muscleId,
-    difficultyLevelId: difficultyLevelId));
-
+  }) async {
+    return await executeApi(
+      () => exerciseApiClient.getExercises(
+        currentLocale: currentLocale,
+        muscleId: muscleId,
+        difficultyLevelId: difficultyLevelId,
+      ),
+    );
   }
 }

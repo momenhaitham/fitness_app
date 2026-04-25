@@ -3,6 +3,10 @@ import 'package:fitness_app/features/exercise/data/models/get_all_levels_dto.dar
 import 'package:fitness_app/features/exercise/data/models/get_exercises_dto.dart';
 
 abstract class ExerciseRemoteDataSourceContract {
-  Future<BaseResponse<GetExercisesDto>?> getExercises(String? currentLocale, String? muscleId, String? difficultyLevelId);
-  Future<BaseResponse<GetAllLevelsDto>?> getAllLevels(String? currentLocale);
+  Future<BaseResponse<GetExercisesDto>?> getExercises({
+    String? currentLocale,
+    String? muscleId,
+    String? difficultyLevelId,
+  });
+  Future<BaseResponse<GetAllLevelsDto>?> getAllLevels({String? currentLocale});
 }
