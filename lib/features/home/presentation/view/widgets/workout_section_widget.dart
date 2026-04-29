@@ -35,16 +35,16 @@ class _WorkoutSectionWidgetState extends State<WorkoutSectionWidget> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-         Text(
-  'See All',
-  style: TextStyle(
-    color: AppColors.primaryColor,
-    fontSize: 14,
-    decoration: TextDecoration.underline,
-    decorationColor: AppColors.primaryColor,
-    decorationThickness: 2,
-  ),
-),
+            Text(
+              'See All',
+              style: TextStyle(
+                color: AppColors.primaryColor,
+                fontSize: 14,
+                decoration: TextDecoration.underline,
+                decorationColor: AppColors.primaryColor,
+                decorationThickness: 2,
+              ),
+            ),
           ],
         ),
         const SizedBox(height: 12),
@@ -67,7 +67,9 @@ class _WorkoutSectionWidgetState extends State<WorkoutSectionWidget> {
                     vertical: 6,
                   ),
                   decoration: BoxDecoration(
-                    color: isSelected ?AppColors.primaryColor : Colors.grey[850],
+                    color: isSelected
+                        ? AppColors.primaryColor
+                        : Colors.grey[850],
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(
@@ -95,10 +97,7 @@ class _WorkoutSectionWidgetState extends State<WorkoutSectionWidget> {
             itemCount: 4, // static placeholders
             separatorBuilder: (_, _) => const SizedBox(width: 12),
             itemBuilder: (context, index) {
-              return _WorkoutCard(
-                name: selected?.name ?? '',
-                index: index,
-              );
+              return _WorkoutCard(name: selected?.name ?? '', index: index);
             },
           ),
         ),
@@ -135,8 +134,11 @@ class _WorkoutCard extends StatelessWidget {
               fit: BoxFit.cover,
               errorBuilder: (_, _, _) => Container(
                 color: Colors.grey[850],
-                child: const Icon(Icons.fitness_center,
-                    color: Colors.orange, size: 32),
+                child: const Icon(
+                  Icons.fitness_center,
+                  color: Colors.orange,
+                  size: 32,
+                ),
               ),
             ),
           ),
@@ -165,84 +167,3 @@ class _WorkoutCard extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import 'package:flutter/material.dart';
-// import 'package:fitness_app/features/home/domian/entities/work_out_model.dart';
-
-// class WorkoutSectionWidget extends StatelessWidget {
-//   final List<MuscleGroupModel> musclesGroup;
-
-//   const WorkoutSectionWidget({super.key, required this.musclesGroup});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       crossAxisAlignment: CrossAxisAlignment.start,
-//       children: [
-//         const Padding(
-//           padding: EdgeInsets.symmetric(horizontal: 20),
-//           child: Text(
-//             'Upcoming Workouts',
-//             style: TextStyle(
-//               color: Colors.white,
-//               fontSize: 18,
-//               fontWeight: FontWeight.bold,
-//             ),
-//           ),
-//         ),
-//         const SizedBox(height: 12),
-//         ListView.separated(
-//           padding: const EdgeInsets.symmetric(horizontal: 20),
-//           scrollDirection: Axis.horizontal,
-//           itemCount: musclesGroup.length,
-//           separatorBuilder: (_, _) => const SizedBox(width: 16),
-//           itemBuilder: (context, index) {
-//             final item = musclesGroup[index];
-//             return Column(
-//               children: [
-//                 Container(
-//                   width: 56,
-//                   height: 56,
-//                   decoration: BoxDecoration(
-//                     color: Colors.grey[850],
-//                     borderRadius: BorderRadius.circular(16),
-//                   ),
-//                   child: const Icon(
-//                     Icons.fitness_center,
-//                     color: Colors.orange,
-//                     size: 28,
-//                   ),
-//                 ),
-//                 const SizedBox(height: 6),
-//                 Text(
-//                   item.name,
-//                   style: const TextStyle(
-//                     color: Colors.white,
-//                     fontSize: 12,
-//                   ),
-//                 ),
-//               ],
-//             );
-//           },
-//         ),
-//       ],
-//     );
-//   }
-// }

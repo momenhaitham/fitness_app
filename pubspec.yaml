@@ -54,6 +54,7 @@ dependencies:
   firebase_messaging: ^16.1.2
   numberpicker: ^2.1.2
   group_button: ^5.3.4
+  shimmer: ^3.0.0
 
   
 
