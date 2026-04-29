@@ -1,6 +1,6 @@
 
 // To run this script, use the command:
-// dart lib/generate_feature.dart <feature_name>
+// dart tools/generate_feature.dart <feature_name>
 
 
 

@@ -4,6 +4,7 @@
 import 'package:fitness_app/core/routes/app_route.dart';
 import 'package:fitness_app/features/on_boarding/presentation/views/on_boarding_screen.dart';
 import 'package:fitness_app/features/splash/presentation/views/splash_screen.dart';
+import 'package:fitness_app/features/workouts/presentation/view/pages/workouts_page.dart';
 import 'package:flutter/material.dart';
 
 // TODO: Uncomment imports when screens are ready:
@@ -19,6 +20,10 @@ class RouteGenerator {
       case Routes.splash:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
         
+      case Routes.workouts:
+        // TODO: Uncomment when LoginScreen is ready
+        return MaterialPageRoute(builder: (_) => const WorkoutsPage());
+        // return unDefinedRoute();
       case Routes.login:
         // TODO: Uncomment when LoginScreen is ready
         // return MaterialPageRoute(builder: (_) => const LoginScreen());
