@@ -31,6 +31,16 @@ import '../../features/auth/register/domain/use_cases/register_usecase.dart'
     as _i1057;
 import '../../features/auth/register/presentation/view_model/cubit/register_cubit.dart'
     as _i444;
+import '../../features/home/api/api_client/home_api_client.dart' as _i592;
+import '../../features/home/api/datasourse/home_remote_datasourse_impl.dart'
+    as _i792;
+import '../../features/home/data/datasourse/home_remote_datasourse_impl.dart'
+    as _i656;
+import '../../features/home/data/repository/home_repository_impl.dart' as _i9;
+import '../../features/home/domian/repository/home_repository_contract.dart'
+    as _i689;
+import '../../features/home/domian/use_case/use_case.dart' as _i497;
+import '../../features/home/presentation/view_model/home_cubit.dart' as _i940;
 import '../../features/splash/presentation/view_model/splash_view_model.dart'
     as _i646;
 import '../dio_model/di_module.dart' as _i334;
@@ -129,6 +139,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i517.RegisterApiClient>(
       () => _i517.RegisterApiClient(gh<_i361.Dio>()),
     );
+    gh.factory<_i592.HomeApiClient>(() => _i592.HomeApiClient(gh<_i361.Dio>()));
     gh.factory<_i34.RegisterLocalDataSourceContract>(
       () => _i279.RegisterLocalDataSourceImpl(gh<_i517.RegisterApiClient>()),
     );
@@ -146,9 +157,19 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i1057.RegisterUsecase>(
       () => _i1057.RegisterUsecase(gh<_i57.RegisterRepository>()),
     );
+    gh.factory<_i656.HomeRemoteDataSourceContract>(
+      () => _i792.HomeRemoteDataSourceImpl(gh<_i592.HomeApiClient>()),
+    );
     gh.factory<_i444.RegisterCubit>(
       () => _i444.RegisterCubit(gh<_i1057.RegisterUsecase>()),
     );
+    gh.factory<_i689.HomeRepositoryContract>(
+      () => _i9.HomeRepositoryImpl(gh<_i656.HomeRemoteDataSourceContract>()),
+    );
+    gh.factory<_i497.HomeUseCase>(
+      () => _i497.HomeUseCase(gh<_i689.HomeRepositoryContract>()),
+    );
+    gh.factory<_i940.HomeCubit>(() => _i940.HomeCubit(gh<_i497.HomeUseCase>()));
     return this;
   }
 }

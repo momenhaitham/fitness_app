@@ -21,6 +21,7 @@ class AppProvider extends ChangeNotifier {
 
   Future<void> getCurrentLocale(BuildContext context) async {
     currentLocale = await readAndWriteLocaleUsecase.invokeGetCurrentLocale();
+    currentLocale ??= 'en';
     if(context.mounted){
       context.setLocale(Locale(currentLocale!));
     }
