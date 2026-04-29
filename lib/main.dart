@@ -11,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
+  
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   configureDependencies();
@@ -58,7 +59,7 @@ class _MainAppState extends State<MainApp> {
         theme: AppTheme.lightTheme,
         onGenerateRoute: RouteGenerator.getRoutes,
         locale: context.locale,
-        initialRoute: Routes.forgetPassword,
+        initialRoute: Routes.splash,
       ),
     );
   }

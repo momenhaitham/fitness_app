@@ -35,6 +35,42 @@ import '../../features/auth/forget_password/domain/use_cases/verify_code_use_cas
     as _i513;
 import '../../features/auth/forget_password/presentation/view_model/forget_password_cubit/forget_password_cubit.dart'
     as _i294;
+import '../../features/auth/register/api/api_client/register_api_client.dart'
+    as _i517;
+import '../../features/auth/register/api/datasources/register_local_data_source_impl.dart'
+    as _i279;
+import '../../features/auth/register/data/datasources/register_local_data_source_contract.dart'
+    as _i34;
+import '../../features/auth/register/data/repositories/register_repository_impl.dart'
+    as _i200;
+import '../../features/auth/register/domain/repositories/register_repository.dart'
+    as _i57;
+import '../../features/auth/register/domain/use_cases/register_usecase.dart'
+    as _i1057;
+import '../../features/auth/register/presentation/view_model/cubit/register_cubit.dart'
+    as _i444;
+import '../../features/home/api/api_client/home_api_client.dart' as _i592;
+import '../../features/home/api/datasourse/home_remote_datasourse_impl.dart'
+    as _i792;
+import '../../features/home/data/datasourse/home_remote_datasourse_impl.dart'
+    as _i656;
+import '../../features/home/data/repository/home_repository_impl.dart' as _i9;
+import '../../features/home/domian/repository/home_repository_contract.dart'
+    as _i689;
+import '../../features/home/domian/use_case/use_case.dart' as _i497;
+import '../../features/home/presentation/view_model/home_cubit.dart' as _i940;
+import '../../features/login/api/api_client/login_api_client.dart' as _i395;
+import '../../features/login/api/datasources/login_remote_data_source_impl.dart'
+    as _i904;
+import '../../features/login/data/datasources/login_remote_data_source_contract.dart'
+    as _i736;
+import '../../features/login/data/repositories/login_repository_impl.dart'
+    as _i1066;
+import '../../features/login/domain/repositories/login_repository.dart'
+    as _i902;
+import '../../features/login/domain/use_cases/login_use_case.dart' as _i191;
+import '../../features/login/presentation/view_model/cubit/login_cubit.dart'
+    as _i753;
 import '../../features/splash/presentation/view_model/splash_view_model.dart'
     as _i646;
 import '../dio_model/di_module.dart' as _i334;
@@ -133,19 +169,62 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i478.ForgetPasswordApiClient>(
       () => _i478.ForgetPasswordApiClient(gh<_i361.Dio>()),
     );
+    gh.factory<_i517.RegisterApiClient>(
+      () => _i517.RegisterApiClient(gh<_i361.Dio>()),
+    );
+    gh.factory<_i592.HomeApiClient>(() => _i592.HomeApiClient(gh<_i361.Dio>()));
+    gh.factory<_i395.LoginApiClient>(
+      () => _i395.LoginApiClient(gh<_i361.Dio>()),
+    );
+    gh.factory<_i34.RegisterLocalDataSourceContract>(
+      () => _i279.RegisterLocalDataSourceImpl(gh<_i517.RegisterApiClient>()),
+    );
     gh.factory<_i646.SplashViewModel>(
       () => _i646.SplashViewModel(
         gh<_i226.GetRememberMeUseCase>(),
         gh<_i554.GetFirstTimeLaunchedUseCase>(),
       ),
     );
+    gh.factory<_i736.LoginRemoteDataSourceContract>(
+      () => _i904.LoginRemoteDataSourceImpl(gh<_i395.LoginApiClient>()),
+    );
+    gh.factory<_i57.RegisterRepository>(
+      () => _i200.RegisterRepositoryImpl(
+        gh<_i34.RegisterLocalDataSourceContract>(),
+      ),
+    );
+    gh.factory<_i1057.RegisterUsecase>(
+      () => _i1057.RegisterUsecase(gh<_i57.RegisterRepository>()),
+    );
     gh.factory<_i253.ForgetPasswordDataSource>(
       () => _i1058.ForgetPasswordDataSourceImpl(
         gh<_i478.ForgetPasswordApiClient>(),
       ),
     );
+    gh.factory<_i902.LoginRepository>(
+      () =>
+          _i1066.LoginRepositoryImpl(gh<_i736.LoginRemoteDataSourceContract>()),
+    );
+    gh.factory<_i656.HomeRemoteDataSourceContract>(
+      () => _i792.HomeRemoteDataSourceImpl(gh<_i592.HomeApiClient>()),
+    );
+    gh.factory<_i444.RegisterCubit>(
+      () => _i444.RegisterCubit(gh<_i1057.RegisterUsecase>()),
+    );
+    gh.factory<_i689.HomeRepositoryContract>(
+      () => _i9.HomeRepositoryImpl(gh<_i656.HomeRemoteDataSourceContract>()),
+    );
     gh.factory<_i484.ForgetPasswordRepo>(
       () => _i569.ForgetPasswordRepoImpl(gh<_i253.ForgetPasswordDataSource>()),
+    );
+    gh.factory<_i191.LoginUseCase>(
+      () => _i191.LoginUseCase(gh<_i902.LoginRepository>()),
+    );
+    gh.factory<_i753.LoginCubit>(
+      () => _i753.LoginCubit(gh<_i191.LoginUseCase>()),
+    );
+    gh.factory<_i497.HomeUseCase>(
+      () => _i497.HomeUseCase(gh<_i689.HomeRepositoryContract>()),
     );
     gh.factory<_i913.ForgetPasswordUseCase>(
       () => _i913.ForgetPasswordUseCase(gh<_i484.ForgetPasswordRepo>()),
@@ -156,6 +235,7 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i513.VerifyCodeUseCase>(
       () => _i513.VerifyCodeUseCase(gh<_i484.ForgetPasswordRepo>()),
     );
+    gh.factory<_i940.HomeCubit>(() => _i940.HomeCubit(gh<_i497.HomeUseCase>()));
     gh.factory<_i294.ForgetPasswordCubit>(
       () => _i294.ForgetPasswordCubit(
         forgetPasswordUseCase: gh<_i913.ForgetPasswordUseCase>(),
