@@ -18,7 +18,7 @@ class AppDialog {
       context: context,
       builder: (context) {
         return AlertDialog(
-          backgroundColor:AppColors.baseWhiteColor,
+          backgroundColor:AppColors.lightBlack,
           elevation: 30,
           contentPadding: EdgeInsets.zero,
           content: message.isEmpty
@@ -29,7 +29,8 @@ class AppDialog {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const CircularProgressIndicator(
-                        backgroundColor: AppColors.primaryColor,
+                        color:AppColors.primaryColor ,
+                        backgroundColor: AppColors.lightBlack,
                       ),
                       const SizedBox(height: 10),
                       Text(AppLocale.loading.tr()),
@@ -44,7 +45,7 @@ class AppDialog {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(message, textAlign: TextAlign.center,
-                        style: Theme.of(context).textTheme.bodyLarge,
+                        style: Theme.of(context).textTheme.titleLarge!.copyWith(color: AppColors.primaryColor),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,

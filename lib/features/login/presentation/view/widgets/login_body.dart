@@ -10,6 +10,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'login_greeting.dart';
 import 'login_logo.dart';
+import 'package:fitness_app/core/routes/app_route.dart';
 
 class LoginBody extends StatefulWidget {
   const LoginBody({super.key});
@@ -34,9 +35,13 @@ class _LoginBodyState extends State<LoginBody> {
           context,
         ).showSnackBar(SnackBar(content: Text(event.massage)));
       } else if (event is NavigateToHomeTempEvent) {
-        // TODO: Navigate to Home
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          Routes.home,
+          (route) => false,
+        );
       } else if (event is NavigateToRegisterTempEvent) {
-        // TODO: Navigate to Register
+        Navigator.pushNamed(context, Routes.register);
       } else if (event is ShowLoadingTempEvent) {
         setState(() => _isLoading = true);
       } else if (event is HideLoadingTempEvent) {
