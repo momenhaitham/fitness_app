@@ -53,7 +53,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         curve: Curves.easeInOut,
       );
     } else {
-      _navigateToLogin();
+      Navigator.pushNamed(context, Routes.login);
     }
   }
 

@@ -41,6 +41,18 @@ import '../../features/home/domian/repository/home_repository_contract.dart'
     as _i689;
 import '../../features/home/domian/use_case/use_case.dart' as _i497;
 import '../../features/home/presentation/view_model/home_cubit.dart' as _i940;
+import '../../features/login/api/api_client/login_api_client.dart' as _i395;
+import '../../features/login/api/datasources/login_remote_data_source_impl.dart'
+    as _i904;
+import '../../features/login/data/datasources/login_remote_data_source_contract.dart'
+    as _i736;
+import '../../features/login/data/repositories/login_repository_impl.dart'
+    as _i1066;
+import '../../features/login/domain/repositories/login_repository.dart'
+    as _i902;
+import '../../features/login/domain/use_cases/login_use_case.dart' as _i191;
+import '../../features/login/presentation/view_model/cubit/login_cubit.dart'
+    as _i753;
 import '../../features/splash/presentation/view_model/splash_view_model.dart'
     as _i646;
 import '../dio_model/di_module.dart' as _i334;
@@ -140,6 +152,9 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i517.RegisterApiClient(gh<_i361.Dio>()),
     );
     gh.factory<_i592.HomeApiClient>(() => _i592.HomeApiClient(gh<_i361.Dio>()));
+    gh.factory<_i395.LoginApiClient>(
+      () => _i395.LoginApiClient(gh<_i361.Dio>()),
+    );
     gh.factory<_i34.RegisterLocalDataSourceContract>(
       () => _i279.RegisterLocalDataSourceImpl(gh<_i517.RegisterApiClient>()),
     );
@@ -149,6 +164,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i554.GetFirstTimeLaunchedUseCase>(),
       ),
     );
+    gh.factory<_i736.LoginRemoteDataSourceContract>(
+      () => _i904.LoginRemoteDataSourceImpl(gh<_i395.LoginApiClient>()),
+    );
     gh.factory<_i57.RegisterRepository>(
       () => _i200.RegisterRepositoryImpl(
         gh<_i34.RegisterLocalDataSourceContract>(),
@@ -156,6 +174,10 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i1057.RegisterUsecase>(
       () => _i1057.RegisterUsecase(gh<_i57.RegisterRepository>()),
+    );
+    gh.factory<_i902.LoginRepository>(
+      () =>
+          _i1066.LoginRepositoryImpl(gh<_i736.LoginRemoteDataSourceContract>()),
     );
     gh.factory<_i656.HomeRemoteDataSourceContract>(
       () => _i792.HomeRemoteDataSourceImpl(gh<_i592.HomeApiClient>()),
@@ -165,6 +187,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i689.HomeRepositoryContract>(
       () => _i9.HomeRepositoryImpl(gh<_i656.HomeRemoteDataSourceContract>()),
+    );
+    gh.factory<_i191.LoginUseCase>(
+      () => _i191.LoginUseCase(gh<_i902.LoginRepository>()),
+    );
+    gh.factory<_i753.LoginCubit>(
+      () => _i753.LoginCubit(gh<_i191.LoginUseCase>()),
     );
     gh.factory<_i497.HomeUseCase>(
       () => _i497.HomeUseCase(gh<_i689.HomeRepositoryContract>()),
