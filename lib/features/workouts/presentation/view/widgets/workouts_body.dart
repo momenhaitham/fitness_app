@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/resources/assets_manager.dart';
+import 'package:fitness_app/core/routes/app_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,13 +21,24 @@ class WorkoutsBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: 16.h),
-              Text(
-                'Workouts',
-                style: TextStyle(
-                  fontSize: 24.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, Routes.home);
+                    },
+                    icon: const Icon(Icons.arrow_back, color: Colors.white),
+                  ),
+                  SizedBox(width: 16.w),
+                  Text(
+                    'Workouts',
+                    style: TextStyle(
+                      fontSize: 24.sp,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
               ),
               SizedBox(height: 24.h),
               const CategoriesListSection(),

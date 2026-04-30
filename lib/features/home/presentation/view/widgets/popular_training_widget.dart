@@ -1,3 +1,5 @@
+import 'package:fitness_app/core/resources/app_colors.dart';
+import 'package:fitness_app/core/routes/app_route.dart';
 import 'package:flutter/material.dart';
 
 class PopularTrainingSectionWidget extends StatelessWidget {
@@ -54,9 +56,20 @@ class PopularTrainingSectionWidget extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text(
-              'See All',
-              style: TextStyle(color: Colors.orange[400], fontSize: 14),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, Routes.workouts);
+              },
+              child: Text(
+                'See All',
+                style: TextStyle(
+                  color: AppColors.primaryColor,
+                  fontSize: 14,
+                  decoration: TextDecoration.underline,
+                  decorationColor: AppColors.primaryColor,
+                  decorationThickness: 2,
+                ),
+              ),
             ),
           ],
         ),
@@ -67,8 +80,7 @@ class PopularTrainingSectionWidget extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: _items.length,
             separatorBuilder: (_, _) => const SizedBox(width: 14),
-            itemBuilder: (context, index) =>
-                _TrainingCard(item: _items[index]),
+            itemBuilder: (context, index) => _TrainingCard(item: _items[index]),
           ),
         ),
       ],
@@ -96,8 +108,11 @@ class _TrainingCard extends StatelessWidget {
               fit: BoxFit.cover,
               errorBuilder: (_, _, _) => Container(
                 color: const Color(0xFF1E1E1E),
-                child: const Icon(Icons.fitness_center,
-                    color: Colors.orange, size: 40),
+                child: const Icon(
+                  Icons.fitness_center,
+                  color: Colors.orange,
+                  size: 40,
+                ),
               ),
             ),
           ),
@@ -146,13 +161,16 @@ class _TrainingCard extends StatelessWidget {
                     const SizedBox(width: 8),
                     Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 8, vertical: 3),
+                        horizontal: 8,
+                        vertical: 3,
+                      ),
                       decoration: BoxDecoration(
                         color: item.levelColor.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
-                            color: item.levelColor.withValues(alpha: 0.6),
-                            width: 0.8),
+                          color: item.levelColor.withValues(alpha: 0.6),
+                          width: 0.8,
+                        ),
                       ),
                       child: Text(
                         item.level,

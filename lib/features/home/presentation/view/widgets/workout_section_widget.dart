@@ -38,7 +38,7 @@ class _WorkoutSectionWidgetState extends State<WorkoutSectionWidget> {
             ),
             TextButton(
               onPressed: () {
-                Navigator.push(context, Routes.workouts);
+                Navigator.pushNamed(context, Routes.workouts);
               },
               child: Text(
                 'See All',
