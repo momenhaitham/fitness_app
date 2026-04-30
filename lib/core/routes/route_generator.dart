@@ -7,6 +7,7 @@ import 'package:fitness_app/features/auth/register/presentation/view/pages/regis
 import 'package:fitness_app/features/home/presentation/view/screen/home_Page.dart';
 import 'package:fitness_app/features/on_boarding/presentation/views/screen/on_boarding_screen.dart';
 import 'package:fitness_app/features/splash/presentation/views/splash_screen.dart';
+import 'package:fitness_app/features/workouts/presentation/view/pages/workouts_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fitness_app/features/login/presentation/view/pages/login_page.dart';
@@ -22,25 +23,22 @@ class RouteGenerator {
     switch (settings.name) {
       case Routes.splash:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
-      
+
       case Routes.register:
         return MaterialPageRoute(builder: (_) => const RegisterPage());
 
+      case Routes.workouts:
+        // TODO: Uncomment when LoginScreen is ready
+        return MaterialPageRoute(builder: (_) => const WorkoutsPage());
       case Routes.login:
         return MaterialPageRoute(builder: (_) => const LoginPage());
       case Routes.home:
         // TODO: Uncomment when HomeScreen is ready
-         return MaterialPageRoute(builder: (_) => const HomePage());
-        //return unDefinedRoute();
+        return MaterialPageRoute(builder: (_) => const HomePage());
+
       case Routes.onboarding:
         return MaterialPageRoute(builder: (_) => const OnBoardingScreen());
-        
-      // case Routes.onboarding2:
-      //   return MaterialPageRoute(builder: (_) => const OnBoardingScreen2());
-        
-      // case Routes.onboarding3:
-      //   return MaterialPageRoute(builder: (_) => const OnBoardingScreen3());
-        
+
       case Routes.forgetPassword:
         return MaterialPageRoute(builder: (_) => const ForgetPasswordScreen());
       default:
