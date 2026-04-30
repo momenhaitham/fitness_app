@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/resources/app_colors.dart';
+import 'package:fitness_app/core/routes/app_route.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness_app/features/home/domian/entities/work_out_model.dart';
 
@@ -35,14 +36,19 @@ class _WorkoutSectionWidgetState extends State<WorkoutSectionWidget> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text(
-              'See All',
-              style: TextStyle(
-                color: AppColors.primaryColor,
-                fontSize: 14,
-                decoration: TextDecoration.underline,
-                decorationColor: AppColors.primaryColor,
-                decorationThickness: 2,
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, Routes.workouts);
+              },
+              child: Text(
+                'See All',
+                style: TextStyle(
+                  color: AppColors.primaryColor,
+                  fontSize: 14,
+                  decoration: TextDecoration.underline,
+                  decorationColor: AppColors.primaryColor,
+                  decorationThickness: 2,
+                ),
               ),
             ),
           ],

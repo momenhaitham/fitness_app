@@ -12,6 +12,7 @@ abstract class AssetsImage {
 static const String onboarding2 = 'assets/images/onboarding_2.png';
 static const String onboarding3 = 'assets/images/onboarding_3.png';
   static const String loginBackGround = '$imagePath/loginBackGround.png';
+  static const String workoutsBackGround = '$imagePath/workoutsBackGround.png';
 }
 
 abstract class AssetsIcons {

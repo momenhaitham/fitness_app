@@ -55,6 +55,22 @@ import '../../features/login/presentation/view_model/cubit/login_cubit.dart'
     as _i753;
 import '../../features/splash/presentation/view_model/splash_view_model.dart'
     as _i646;
+import '../../features/workouts/api/api_client/workouts_api_client.dart'
+    as _i123;
+import '../../features/workouts/api/datasources/workouts_remote_data_source_impl.dart'
+    as _i355;
+import '../../features/workouts/data/datasources/workouts_remote_data_source_contract.dart'
+    as _i668;
+import '../../features/workouts/data/repositories/workouts_repository_impl.dart'
+    as _i774;
+import '../../features/workouts/domain/repositories/workouts_repository.dart'
+    as _i243;
+import '../../features/workouts/domain/use_cases/get_muscles_group_by_id_use_case.dart'
+    as _i350;
+import '../../features/workouts/domain/use_cases/get_muscles_group_use_case.dart'
+    as _i249;
+import '../../features/workouts/presentation/view_model/cubit/workouts_cubit.dart'
+    as _i152;
 import '../dio_model/di_module.dart' as _i334;
 import '../dio_model/token_interceptors.dart' as _i475;
 import '../local_storage_processes/data/storage_local_data_source_impl.dart'
@@ -148,6 +164,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i475.TokenInterceptor>(),
       ),
     );
+    gh.lazySingleton<_i123.WorkoutsApiClient>(
+      () => _i123.WorkoutsApiClient(gh<_i361.Dio>()),
+    );
     gh.factory<_i517.RegisterApiClient>(
       () => _i517.RegisterApiClient(gh<_i361.Dio>()),
     );
@@ -179,6 +198,14 @@ extension GetItInjectableX on _i174.GetIt {
       () =>
           _i1066.LoginRepositoryImpl(gh<_i736.LoginRemoteDataSourceContract>()),
     );
+    gh.factory<_i668.WorkoutRemoteDataSourceContract>(
+      () => _i355.WorkoutsRemoteDataSourceImpl(gh<_i123.WorkoutsApiClient>()),
+    );
+    gh.factory<_i243.WorkoutRepository>(
+      () => _i774.WorkoutsRepositoryImpl(
+        gh<_i668.WorkoutRemoteDataSourceContract>(),
+      ),
+    );
     gh.factory<_i656.HomeRemoteDataSourceContract>(
       () => _i792.HomeRemoteDataSourceImpl(gh<_i592.HomeApiClient>()),
     );
@@ -194,8 +221,20 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i753.LoginCubit>(
       () => _i753.LoginCubit(gh<_i191.LoginUseCase>()),
     );
+    gh.factory<_i350.GetMusclesGroupByIdUseCase>(
+      () => _i350.GetMusclesGroupByIdUseCase(gh<_i243.WorkoutRepository>()),
+    );
+    gh.factory<_i249.GetMusclesGroupUseCase>(
+      () => _i249.GetMusclesGroupUseCase(gh<_i243.WorkoutRepository>()),
+    );
     gh.factory<_i497.HomeUseCase>(
       () => _i497.HomeUseCase(gh<_i689.HomeRepositoryContract>()),
+    );
+    gh.factory<_i152.WorkoutsCubit>(
+      () => _i152.WorkoutsCubit(
+        gh<_i249.GetMusclesGroupUseCase>(),
+        gh<_i350.GetMusclesGroupByIdUseCase>(),
+      ),
     );
     gh.factory<_i940.HomeCubit>(() => _i940.HomeCubit(gh<_i497.HomeUseCase>()));
     return this;

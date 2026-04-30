@@ -7,4 +7,5 @@ abstract class Routes {
   static const String onboarding2 = "onboardingScreen2";
   static const String onboarding3 = "onboardingScreen3";
   static const String forgetPassword = "forgetPasswordScreen";
+  static const String workouts = "workoutsScreen";
 }
