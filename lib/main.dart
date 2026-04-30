@@ -11,19 +11,20 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
+  
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   configureDependencies();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  
+
   AppProvider appProvider = getIt<AppProvider>();
   runApp(
     ChangeNotifierProvider(
       create: (context) => appProvider,
       child: EasyLocalization(
-      supportedLocales: [Locale('ar'),Locale('en')],
-      path: 'assets/translations',
-      child: MainApp()
+        supportedLocales: [Locale('ar'), Locale('en')],
+        path: 'assets/translations',
+        child: MainApp(),
       ),
     ),
   );
