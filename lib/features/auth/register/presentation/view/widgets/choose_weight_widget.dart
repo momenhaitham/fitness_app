@@ -51,7 +51,7 @@ class _ChooseWeightWidgetState extends State<ChooseWeightWidget> {
                 ),
               ),
               Icon(Icons.arrow_drop_up_sharp,color: AppColors.primaryColor,size: 50,),
-              Container(
+              SizedBox(
                   height: height * AppSize.s0_05,
                   width: double.infinity,
                   child: ElevatedButton(onPressed:() {

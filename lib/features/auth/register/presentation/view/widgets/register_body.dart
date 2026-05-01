@@ -80,7 +80,7 @@ class _RegisterBodyState extends State<RegisterBody> {
                   ),
                 ),
                 SizedBox(height: height * AppSize.s0_04,),
-                Container(
+                SizedBox(
                   height: height * AppSize.s0_05,
                   width: double.infinity,
                   child: ElevatedButton(onPressed: () {
