@@ -9,7 +9,7 @@ import 'package:injectable/injectable.dart';
 @Injectable(as: RegisterRepository)
 class RegisterRepositoryImpl implements RegisterRepository {
 
-  RegisterLocalDataSourceContract _registerLocalDataSourceContract;
+  final RegisterLocalDataSourceContract _registerLocalDataSourceContract;
   RegisterRepositoryImpl(this._registerLocalDataSourceContract);
   @override
   Future<BaseResponse<RegisterModel>> register(Map<String, dynamic> body)async {

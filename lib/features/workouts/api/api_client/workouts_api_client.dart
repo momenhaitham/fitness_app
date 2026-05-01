@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:fitness_app/core/endpoint/app_endpoint.dart';
-import 'package:fitness_app/features/workouts/data/models/muscle_group_model.dart';
 import 'package:fitness_app/features/workouts/data/models/muscle_group_by_id_response.dart';
 import 'package:fitness_app/features/workouts/data/models/muscles_group_response.dart';
 import 'package:injectable/injectable.dart';

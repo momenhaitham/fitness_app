@@ -99,7 +99,7 @@ class _ChooseGenderWidgetState extends State<ChooseGenderWidget> {
                 ),
               ),
               SizedBox(height: height * AppSize.s0_02,),
-              Container(
+              SizedBox(
                   height: height * AppSize.s0_05,
                   width: double.infinity,
                   child: Visibility(
