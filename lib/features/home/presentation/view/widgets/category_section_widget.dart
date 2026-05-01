@@ -6,18 +6,6 @@ class CategorySectionWidget extends StatelessWidget {
 
   const CategorySectionWidget({super.key, required this.musclesGroup});
 
-  // Static icon mapping per category name
-  static IconData _iconFor(String name) {
-    final n = name.toLowerCase();
-    if (n.contains('gym')) return Icons.fitness_center;
-    if (n.contains('yoga')) return Icons.self_improvement;
-    if (n.contains('run') || n.contains('cardio')) return Icons.directions_run;
-    if (n.contains('swim')) return Icons.pool;
-    if (n.contains('bike') || n.contains('cycling')) {
-      return Icons.directions_bike;
-    }
-    return Icons.sports_gymnastics;
-  }
 
   @override
   Widget build(BuildContext context) {

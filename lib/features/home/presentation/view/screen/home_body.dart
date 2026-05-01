@@ -67,9 +67,7 @@ class HomeBody extends StatelessWidget {
                         _buildSection(
                           state: state.workOutState,
                           shimmer: const WorkoutShimmer(),
-                          loadedBuilder: (data) => WorkoutSectionWidget(
-                            musclesGroup: data.musclesGroup,
-                          ),
+                          loadedBuilder: (data) => const WorkoutSectionWidget(),
                         ),
                         const SizedBox(height: 24),
 

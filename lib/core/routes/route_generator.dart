@@ -3,7 +3,7 @@
 
 import 'package:fitness_app/core/routes/app_route.dart';
 import 'package:fitness_app/features/auth/register/presentation/view/pages/register_page.dart';
-import 'package:fitness_app/features/home/presentation/view/screen/home_Page.dart';
+import 'package:fitness_app/features/home/presentation/view/screen/home_page.dart';
 import 'package:fitness_app/features/on_boarding/presentation/views/screen/on_boarding_screen.dart';
 import 'package:fitness_app/features/splash/presentation/views/splash_screen.dart';
 import 'package:fitness_app/features/workouts/presentation/view/pages/workouts_page.dart';
