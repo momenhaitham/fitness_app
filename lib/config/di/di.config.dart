@@ -182,13 +182,11 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i475.TokenInterceptor>(),
       ),
     );
-<<<<<<< HEAD
-    gh.factory<_i478.ForgetPasswordApiClient>(
-      () => _i478.ForgetPasswordApiClient(gh<_i361.Dio>()),
-=======
     gh.lazySingleton<_i123.WorkoutsApiClient>(
       () => _i123.WorkoutsApiClient(gh<_i361.Dio>()),
->>>>>>> 703df47a5b848fd23ff0cfb1f2d811976eb1f907
+    );
+    gh.factory<_i478.ForgetPasswordApiClient>(
+      () => _i478.ForgetPasswordApiClient(gh<_i361.Dio>()),
     );
     gh.factory<_i517.RegisterApiClient>(
       () => _i517.RegisterApiClient(gh<_i361.Dio>()),
@@ -261,7 +259,6 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i497.HomeUseCase>(
       () => _i497.HomeUseCase(gh<_i689.HomeRepositoryContract>()),
     );
-<<<<<<< HEAD
     gh.factory<_i913.ForgetPasswordUseCase>(
       () => _i913.ForgetPasswordUseCase(gh<_i484.ForgetPasswordRepo>()),
     );
@@ -270,13 +267,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i513.VerifyCodeUseCase>(
       () => _i513.VerifyCodeUseCase(gh<_i484.ForgetPasswordRepo>()),
-=======
+    );
     gh.factory<_i152.WorkoutsCubit>(
       () => _i152.WorkoutsCubit(
         gh<_i249.GetMusclesGroupUseCase>(),
         gh<_i350.GetMusclesGroupByIdUseCase>(),
       ),
->>>>>>> 703df47a5b848fd23ff0cfb1f2d811976eb1f907
     );
     gh.factory<_i940.HomeCubit>(() => _i940.HomeCubit(gh<_i497.HomeUseCase>()));
     gh.factory<_i294.ForgetPasswordCubit>(
