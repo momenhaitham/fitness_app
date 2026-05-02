@@ -20,35 +20,30 @@ class CustomNavBarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.all(4),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AnimatedSlide(
-              offset: isSelected ? const Offset(0, -0.2) : Offset.zero,
-              duration: const Duration(milliseconds: 200),
-              curve: Curves.easeInOut,
-              child: SvgPicture.asset(
-                icon,
-                colorFilter: ColorFilter.mode(
-                  isSelected
-                      ? AppColors.primaryColor
-                      : AppColors.baseWhiteColor,
-                  BlendMode.srcIn,
-                ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          AnimatedSlide(
+            offset: isSelected ? const Offset(0, -0.2) : Offset.zero,
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeInOut,
+            child: SvgPicture.asset(
+              icon,
+              colorFilter: ColorFilter.mode(
+                isSelected ? AppColors.primaryColor : AppColors.baseWhiteColor,
+                BlendMode.srcIn,
               ),
             ),
-            AnimatedSize(
-              duration: const Duration(milliseconds: 200),
-              curve: Curves.easeInOut,
-              child: isSelected
-                  ? Text(title, key: ValueKey(title))
-                  : const SizedBox.shrink(),
-            ),
-          ],
-        ),
+          ),
+          AnimatedSize(
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeInOut,
+            child: isSelected
+                ? Text(title, key: ValueKey(title))
+                : const SizedBox.shrink(),
+          ),
+        ],
       ),
     );
   }

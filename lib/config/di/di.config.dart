@@ -20,8 +20,78 @@ import 'package:shared_preferences/shared_preferences.dart' as _i460;
 import '../../app_provider.dart' as _i30;
 import '../../features/app_sections/presentation/view_model/cubit/app_sections_cubit.dart'
     as _i1038;
+import '../../features/auth/forget_password/api/api_client/forget_password_api_client.dart'
+    as _i478;
+import '../../features/auth/forget_password/api/data_sources/forget_password_data_source_impl.dart'
+    as _i1058;
+import '../../features/auth/forget_password/data/data_sources/forget_password_data_source.dart'
+    as _i253;
+import '../../features/auth/forget_password/data/models/repo/forget_password_repo_impl.dart'
+    as _i569;
+import '../../features/auth/forget_password/domain/repo/forget_password_repo.dart'
+    as _i484;
+import '../../features/auth/forget_password/domain/use_cases/forget_password_use_case.dart'
+    as _i913;
+import '../../features/auth/forget_password/domain/use_cases/reset_password_use_case.dart'
+    as _i22;
+import '../../features/auth/forget_password/domain/use_cases/verify_code_use_case.dart'
+    as _i513;
+import '../../features/auth/forget_password/presentation/view_model/forget_password_cubit/forget_password_cubit.dart'
+    as _i294;
+import '../../features/auth/register/api/api_client/register_api_client.dart'
+    as _i517;
+import '../../features/auth/register/api/datasources/register_local_data_source_impl.dart'
+    as _i279;
+import '../../features/auth/register/data/datasources/register_local_data_source_contract.dart'
+    as _i34;
+import '../../features/auth/register/data/repositories/register_repository_impl.dart'
+    as _i200;
+import '../../features/auth/register/domain/repositories/register_repository.dart'
+    as _i57;
+import '../../features/auth/register/domain/use_cases/register_usecase.dart'
+    as _i1057;
+import '../../features/auth/register/presentation/view_model/cubit/register_cubit.dart'
+    as _i444;
+import '../../features/home/api/api_client/home_api_client.dart' as _i592;
+import '../../features/home/api/datasourse/home_remote_datasourse_impl.dart'
+    as _i792;
+import '../../features/home/data/datasourse/home_remote_datasourse_impl.dart'
+    as _i656;
+import '../../features/home/data/repository/home_repository_impl.dart' as _i9;
+import '../../features/home/domian/repository/home_repository_contract.dart'
+    as _i689;
+import '../../features/home/domian/use_case/use_case.dart' as _i497;
+import '../../features/home/presentation/view_model/home_cubit.dart' as _i940;
+import '../../features/login/api/api_client/login_api_client.dart' as _i395;
+import '../../features/login/api/datasources/login_remote_data_source_impl.dart'
+    as _i904;
+import '../../features/login/data/datasources/login_remote_data_source_contract.dart'
+    as _i736;
+import '../../features/login/data/repositories/login_repository_impl.dart'
+    as _i1066;
+import '../../features/login/domain/repositories/login_repository.dart'
+    as _i902;
+import '../../features/login/domain/use_cases/login_use_case.dart' as _i191;
+import '../../features/login/presentation/view_model/cubit/login_cubit.dart'
+    as _i753;
 import '../../features/splash/presentation/view_model/splash_view_model.dart'
     as _i646;
+import '../../features/workouts/api/api_client/workouts_api_client.dart'
+    as _i123;
+import '../../features/workouts/api/datasources/workouts_remote_data_source_impl.dart'
+    as _i355;
+import '../../features/workouts/data/datasources/workouts_remote_data_source_contract.dart'
+    as _i668;
+import '../../features/workouts/data/repositories/workouts_repository_impl.dart'
+    as _i774;
+import '../../features/workouts/domain/repositories/workouts_repository.dart'
+    as _i243;
+import '../../features/workouts/domain/use_cases/get_muscles_group_by_id_use_case.dart'
+    as _i350;
+import '../../features/workouts/domain/use_cases/get_muscles_group_use_case.dart'
+    as _i249;
+import '../../features/workouts/presentation/view_model/cubit/workouts_cubit.dart'
+    as _i152;
 import '../dio_model/di_module.dart' as _i334;
 import '../dio_model/token_interceptors.dart' as _i475;
 import '../local_storage_processes/data/storage_local_data_source_impl.dart'
@@ -119,10 +189,104 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i475.TokenInterceptor>(),
       ),
     );
+    gh.lazySingleton<_i123.WorkoutsApiClient>(
+      () => _i123.WorkoutsApiClient(gh<_i361.Dio>()),
+    );
+    gh.factory<_i478.ForgetPasswordApiClient>(
+      () => _i478.ForgetPasswordApiClient(gh<_i361.Dio>()),
+    );
+    gh.factory<_i517.RegisterApiClient>(
+      () => _i517.RegisterApiClient(gh<_i361.Dio>()),
+    );
+    gh.factory<_i592.HomeApiClient>(() => _i592.HomeApiClient(gh<_i361.Dio>()));
+    gh.factory<_i395.LoginApiClient>(
+      () => _i395.LoginApiClient(gh<_i361.Dio>()),
+    );
+    gh.factory<_i34.RegisterLocalDataSourceContract>(
+      () => _i279.RegisterLocalDataSourceImpl(gh<_i517.RegisterApiClient>()),
+    );
     gh.factory<_i646.SplashViewModel>(
       () => _i646.SplashViewModel(
         gh<_i226.GetRememberMeUseCase>(),
         gh<_i554.GetFirstTimeLaunchedUseCase>(),
+      ),
+    );
+    gh.factory<_i736.LoginRemoteDataSourceContract>(
+      () => _i904.LoginRemoteDataSourceImpl(gh<_i395.LoginApiClient>()),
+    );
+    gh.factory<_i57.RegisterRepository>(
+      () => _i200.RegisterRepositoryImpl(
+        gh<_i34.RegisterLocalDataSourceContract>(),
+      ),
+    );
+    gh.factory<_i1057.RegisterUsecase>(
+      () => _i1057.RegisterUsecase(gh<_i57.RegisterRepository>()),
+    );
+    gh.factory<_i253.ForgetPasswordDataSource>(
+      () => _i1058.ForgetPasswordDataSourceImpl(
+        gh<_i478.ForgetPasswordApiClient>(),
+      ),
+    );
+    gh.factory<_i902.LoginRepository>(
+      () =>
+          _i1066.LoginRepositoryImpl(gh<_i736.LoginRemoteDataSourceContract>()),
+    );
+    gh.factory<_i668.WorkoutRemoteDataSourceContract>(
+      () => _i355.WorkoutsRemoteDataSourceImpl(gh<_i123.WorkoutsApiClient>()),
+    );
+    gh.factory<_i243.WorkoutRepository>(
+      () => _i774.WorkoutsRepositoryImpl(
+        gh<_i668.WorkoutRemoteDataSourceContract>(),
+      ),
+    );
+    gh.factory<_i656.HomeRemoteDataSourceContract>(
+      () => _i792.HomeRemoteDataSourceImpl(gh<_i592.HomeApiClient>()),
+    );
+    gh.factory<_i444.RegisterCubit>(
+      () => _i444.RegisterCubit(gh<_i1057.RegisterUsecase>()),
+    );
+    gh.factory<_i689.HomeRepositoryContract>(
+      () => _i9.HomeRepositoryImpl(gh<_i656.HomeRemoteDataSourceContract>()),
+    );
+    gh.factory<_i484.ForgetPasswordRepo>(
+      () => _i569.ForgetPasswordRepoImpl(gh<_i253.ForgetPasswordDataSource>()),
+    );
+    gh.factory<_i191.LoginUseCase>(
+      () => _i191.LoginUseCase(gh<_i902.LoginRepository>()),
+    );
+    gh.factory<_i753.LoginCubit>(
+      () => _i753.LoginCubit(gh<_i191.LoginUseCase>()),
+    );
+    gh.factory<_i350.GetMusclesGroupByIdUseCase>(
+      () => _i350.GetMusclesGroupByIdUseCase(gh<_i243.WorkoutRepository>()),
+    );
+    gh.factory<_i249.GetMusclesGroupUseCase>(
+      () => _i249.GetMusclesGroupUseCase(gh<_i243.WorkoutRepository>()),
+    );
+    gh.factory<_i497.HomeUseCase>(
+      () => _i497.HomeUseCase(gh<_i689.HomeRepositoryContract>()),
+    );
+    gh.factory<_i913.ForgetPasswordUseCase>(
+      () => _i913.ForgetPasswordUseCase(gh<_i484.ForgetPasswordRepo>()),
+    );
+    gh.factory<_i22.ResetPasswordUseCase>(
+      () => _i22.ResetPasswordUseCase(gh<_i484.ForgetPasswordRepo>()),
+    );
+    gh.factory<_i513.VerifyCodeUseCase>(
+      () => _i513.VerifyCodeUseCase(gh<_i484.ForgetPasswordRepo>()),
+    );
+    gh.factory<_i152.WorkoutsCubit>(
+      () => _i152.WorkoutsCubit(
+        gh<_i249.GetMusclesGroupUseCase>(),
+        gh<_i350.GetMusclesGroupByIdUseCase>(),
+      ),
+    );
+    gh.factory<_i940.HomeCubit>(() => _i940.HomeCubit(gh<_i497.HomeUseCase>()));
+    gh.factory<_i294.ForgetPasswordCubit>(
+      () => _i294.ForgetPasswordCubit(
+        forgetPasswordUseCase: gh<_i913.ForgetPasswordUseCase>(),
+        verifyCodeUseCase: gh<_i513.VerifyCodeUseCase>(),
+        resetPasswordUseCase: gh<_i22.ResetPasswordUseCase>(),
       ),
     );
     return this;

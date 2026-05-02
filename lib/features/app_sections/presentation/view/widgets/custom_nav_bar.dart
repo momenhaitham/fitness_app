@@ -20,14 +20,13 @@ class CustomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(30, 0, 30, 30),
+      padding: const EdgeInsets.fromLTRB(10, 0, 10, 15),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        child: TransparentContainer(
-          height: 70,
+        child: Container(
           color: AppColors.blackColor,
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            padding: const EdgeInsets.all(16),
             child: Row(
               children: List.generate(items.length, (index) {
                 final item = items[index];
