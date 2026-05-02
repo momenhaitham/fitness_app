@@ -2,6 +2,7 @@
 // Generated at: 2026-03-29 07:26:29.112315
 
 import 'package:fitness_app/core/routes/app_route.dart';
+import 'package:fitness_app/features/auth/forget_password/presentation/view/screens/forgetpassword_screen.dart';
 import 'package:fitness_app/features/app_sections/presentation/view/pages/app_sections_page.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view/screens/forgetpassword_screen.dart';
 import 'package:fitness_app/features/auth/register/presentation/view/pages/register_page.dart';

@@ -25,6 +25,7 @@ class AppLocale {
   static const String female = 'female';
   static const String explore = 'explore';
   static const String firstNameRequired = 'firstNameRequired';
+
   static const String first_name = 'first_name';
   static const String forgetPassword = 'Forget Password';
   static const String forgot_password = 'forgot_password';

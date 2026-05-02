@@ -189,6 +189,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i475.TokenInterceptor>(),
       ),
     );
+    gh.factory<_i478.ForgetPasswordApiClient>(
+      () => _i478.ForgetPasswordApiClient(gh<_i361.Dio>()),
+    );
     gh.lazySingleton<_i123.WorkoutsApiClient>(
       () => _i123.WorkoutsApiClient(gh<_i361.Dio>()),
     );
@@ -226,6 +229,9 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i1058.ForgetPasswordDataSourceImpl(
         gh<_i478.ForgetPasswordApiClient>(),
       ),
+    );
+    gh.factory<_i484.ForgetPasswordRepo>(
+      () => _i569.ForgetPasswordRepoImpl(gh<_i253.ForgetPasswordDataSource>()),
     );
     gh.factory<_i902.LoginRepository>(
       () =>
