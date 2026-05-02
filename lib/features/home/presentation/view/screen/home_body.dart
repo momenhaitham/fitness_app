@@ -31,6 +31,7 @@ class HomeBody extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           SafeArea(
+            bottom: false,
             child: BlocBuilder<HomeCubit, HomeStates>(
               builder: (context, state) {
                 return SingleChildScrollView(
@@ -84,7 +85,7 @@ class HomeBody extends StatelessWidget {
 
                         // ===== POPULAR TRAINING (static) =====
                         const PopularTrainingSectionWidget(),
-                        const SizedBox(height: 32),
+                        const SizedBox(height: 100),
                       ],
                     ),
                   ),

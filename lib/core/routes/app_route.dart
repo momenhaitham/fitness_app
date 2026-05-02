@@ -8,4 +8,5 @@ abstract class Routes {
   static const String onboarding3 = "onboardingScreen3";
   static const String forgetPassword = "forgetPasswordScreen";
   static const String workouts = "workoutsScreen";
+  static const String appSections = "appSectionsScreen";
 }

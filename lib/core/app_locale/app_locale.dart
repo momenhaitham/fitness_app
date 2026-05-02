@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // Generated from translation files
 // Last generated: 2026-04-04 21:47:42.512987
+// Last generated: 2026-04-07 21:09:43.066139
 
 class AppLocale {
   AppLocale._();
@@ -22,6 +23,7 @@ class AppLocale {
   static const String enterPassword = 'enterPassword';
   static const String error_invalid_credentials = 'error_invalid_credentials';
   static const String female = 'female';
+  static const String explore = 'explore';
   static const String firstNameRequired = 'firstNameRequired';
   static const String first_name = 'first_name';
   static const String forgetPassword = 'Forget Password';
@@ -53,6 +55,7 @@ class AppLocale {
   static const String passwordSpecialChar = 'passwordSpecialChar';
   static const String passwordUpperCase = 'passwordUpperCase';
   static const String phoneNumberRequired = 'phoneNumberRequired';
+  static const String profile = 'profile';
   static const String register = 'register';
   static const String rememberMe = 'rememberMe';
   static const String reset_password = 'reset_password';
@@ -87,4 +90,5 @@ class AppLocale {
   static const String resetPasswordHeader = 'Create New Password';
   static const String confirmPassword = 'Confirm Password';
   static const String passwordsDoNotMatch = 'Passwords Do Not Match';
+  static const String workouts = 'workouts';
 }
