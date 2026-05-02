@@ -5,3 +5,4 @@ void main() {
     expect(true, isTrue);
   });
 }
+void main() {}

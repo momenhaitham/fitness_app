@@ -65,7 +65,7 @@ class StorageLocalDataSourceImpl extends StorageDataSourceContract {
   
   @override
   Future<bool?> getFirstTimeLaunched()async {
-    bool? result  =await  _sharedPreferences.getBool(AppConsts.firstTimeLaunchedKey);
+    bool? result  =_sharedPreferences.getBool(AppConsts.firstTimeLaunchedKey);
     if(result == null || result == true){
       return true;
     }else{
