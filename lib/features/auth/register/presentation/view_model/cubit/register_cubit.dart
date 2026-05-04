@@ -15,7 +15,7 @@ class RegisterCubit extends CustomCubit<RegisterTempEvents, RegisterStates>{
     RegisterCubit(this._registerUsecase) : super(RegisterStates());
     bool firstTime = true;
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    RegisterUsecase _registerUsecase;
+    final RegisterUsecase _registerUsecase;
     GroupButtonController goalController = GroupButtonController();
     GroupButtonController rpalController = GroupButtonController();
     TextEditingController firstNameController = TextEditingController();

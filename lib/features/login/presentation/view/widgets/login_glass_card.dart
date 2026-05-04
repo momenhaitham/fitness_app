@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:fitness_app/core/resources/app_colors.dart';
+import 'package:fitness_app/core/routes/app_route.dart';
 import 'package:fitness_app/core/validation/app_validators.dart';
 import 'package:fitness_app/features/login/presentation/view_model/cubit/login_cubit.dart';
 import 'package:fitness_app/features/login/presentation/view_model/cubit/login_events.dart';
@@ -44,10 +45,10 @@ class LoginGlassCard extends StatelessWidget {
               Text(
                 'Login',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 25.sp,
-                    ),
+                  color: Colors.white,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 25.sp,
+                ),
               ),
               SizedBox(height: 28.h),
 
@@ -77,14 +78,17 @@ class LoginGlassCard extends StatelessWidget {
                   ),
                   onPressed: onObscureToggle,
                 ),
-                validator: (val) => AppValidators.validatePassword(val, context),
+                validator: (val) =>
+                    AppValidators.validatePassword(val, context),
               ),
 
               // ── Forgot Password ───────────────────────────
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, Routes.forgetPassword);
+                  },
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
                     minimumSize: Size.zero,
@@ -140,8 +144,9 @@ class LoginGlassCard extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primaryColor,
                     foregroundColor: Colors.white,
-                    disabledBackgroundColor:
-                        AppColors.primaryColor.withOpacity(0.6),
+                    disabledBackgroundColor: AppColors.primaryColor.withOpacity(
+                      0.6,
+                    ),
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.r),

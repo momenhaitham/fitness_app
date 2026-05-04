@@ -96,7 +96,7 @@ class _ChooseGoalWidgetState extends State<ChooseGoalWidget> {
                 ],
               ),
               SizedBox(height: height * AppSize.s0_05,),
-              Container(
+              SizedBox(
                   height: height * AppSize.s0_05,
                   width: double.infinity,
                   child: Visibility(

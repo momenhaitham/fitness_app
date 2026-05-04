@@ -37,7 +37,7 @@ class _LoginBodyState extends State<LoginBody> {
       } else if (event is NavigateToHomeTempEvent) {
         Navigator.pushNamedAndRemoveUntil(
           context,
-          Routes.home,
+          Routes.appSections,
           (route) => false,
         );
       } else if (event is NavigateToRegisterTempEvent) {

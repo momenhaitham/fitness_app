@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // Generated from translation files
 // Last generated: 2026-04-04 21:47:42.512987
+// Last generated: 2026-04-07 21:09:43.066139
 
 class AppLocale {
   AppLocale._();
@@ -18,13 +19,15 @@ class AppLocale {
   static const String email = 'email';
   static const String emailInvalid = 'emailInvalid';
   static const String emailRequired = 'emailRequired';
-  static const String enterEmail = 'enterEmail';
+  static const String enterEmail = 'Enter Email';
   static const String enterPassword = 'enterPassword';
   static const String error_invalid_credentials = 'error_invalid_credentials';
   static const String female = 'female';
+  static const String explore = 'explore';
   static const String firstNameRequired = 'firstNameRequired';
+
   static const String first_name = 'first_name';
-  static const String forgetPassword = 'forgetPassword';
+  static const String forgetPassword = 'Forget Password';
   static const String forgot_password = 'forgot_password';
   static const String gain_more_flexible = 'gain_more_flexible';
   static const String gain_weight = 'gain_weight';
@@ -53,6 +56,7 @@ class AppLocale {
   static const String passwordSpecialChar = 'passwordSpecialChar';
   static const String passwordUpperCase = 'passwordUpperCase';
   static const String phoneNumberRequired = 'phoneNumberRequired';
+  static const String profile = 'profile';
   static const String register = 'register';
   static const String rememberMe = 'rememberMe';
   static const String reset_password = 'reset_password';
@@ -70,4 +74,22 @@ class AppLocale {
   static const String what_is_your_weight = 'what_is_your_weight';
   static const String year = 'year';
   static const String your_regular_physical_activity_level = 'your_regular_physical_activity_level';
+  static const String invalidCode = 'invalidCode';
+  static const String messageSentSuccessfully = 'messageSentSuccessfully';
+  static const String completeFields = 'completeFields';
+  static const String enterYourEmail = 'Enter Your Email';
+  static const String sentOTP = 'Sent OTP';
+  static const String passwordUpdatedSuccessfully =
+      'passwordUpdatedSuccessfully';
+  static const String otpCode = 'OTP CODE';
+  static const String enterOTP = 'Enter Your OTP Check your email';
+  static const String confirm = 'Confirm';
+  static const String didntRecieveVerificationCode =
+      "Didn't Receive Verification Code?";
+  static const String resendCode = 'Resend Code?';
+  static const String resetPasswordTitle = 'Make Sure Its 8 Characters Or More';
+  static const String resetPasswordHeader = 'Create New Password';
+  static const String confirmPassword = 'Confirm Password';
+  static const String passwordsDoNotMatch = 'Passwords Do Not Match';
+  static const String workouts = 'workouts';
 }
