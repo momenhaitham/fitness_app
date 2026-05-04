@@ -5,9 +5,12 @@ import 'package:fitness_app/core/routes/app_route.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view/screens/forgetpassword_screen.dart';
 import 'package:fitness_app/features/app_sections/presentation/view/pages/app_sections_page.dart';
 import 'package:fitness_app/features/auth/forget_password/presentation/view/screens/forgetpassword_screen.dart';
-import 'package:fitness_app/features/auth/register/presentation/view/pages/register_page.dart';
+import 'package:fitness_app/features/auth/register/presentation/view/pages/register
+import 'package:fitness_app/features/home/presentation/view/screen/home_page.dart';
+import 'package:fitness_app/features/on_boarding/presentation/views/screen/on_boarding_screen.dart';
+
 import 'package:fitness_app/features/home/presentation/view/screen/home_Page.dart';
-import 'package:fitness_app/features/on_boarding/presentation/views/on_boarding_screen.dart';
+import 'package:fitness_app/features/on_boarding/presentation/views/on_boarding_screen.dar
 import 'package:fitness_app/features/splash/presentation/views/splash_screen.dart';
 import 'package:fitness_app/features/workouts/presentation/view/pages/workouts_page.dart';
 import 'package:flutter/material.dart';
