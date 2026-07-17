@@ -74,6 +74,24 @@ import '../../features/login/domain/repositories/login_repository.dart'
 import '../../features/login/domain/use_cases/login_use_case.dart' as _i191;
 import '../../features/login/presentation/view_model/cubit/login_cubit.dart'
     as _i753;
+import '../../features/popular_training/api/api_client/popular_training_api_client.dart'
+    as _i763;
+import '../../features/popular_training/api/datasource/popular_training_datasource_impl.dart'
+    as _i439;
+import '../../features/popular_training/data/datasource/popular_training_datasource_contract.dart'
+    as _i903;
+import '../../features/popular_training/data/repository/popular_training_repository_impl.dart'
+    as _i234;
+import '../../features/popular_training/domain/repository/popular_training_repository_contract.dart'
+    as _i539;
+import '../../features/popular_training/domain/usecase/get_exercises_usecase.dart'
+    as _i1048;
+import '../../features/popular_training/domain/usecase/get_levels_usecase.dart'
+    as _i548;
+import '../../features/popular_training/domain/usecase/get_random_muscles_usecase.dart'
+    as _i982;
+import '../../features/popular_training/presentation/view_model/popular_training_cubit.dart'
+    as _i695;
 import '../../features/splash/presentation/view_model/splash_view_model.dart'
     as _i646;
 import '../../features/workouts/api/api_client/workouts_api_client.dart'
@@ -189,9 +207,6 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i475.TokenInterceptor>(),
       ),
     );
-    gh.factory<_i478.ForgetPasswordApiClient>(
-      () => _i478.ForgetPasswordApiClient(gh<_i361.Dio>()),
-    );
     gh.lazySingleton<_i123.WorkoutsApiClient>(
       () => _i123.WorkoutsApiClient(gh<_i361.Dio>()),
     );
@@ -205,6 +220,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i395.LoginApiClient>(
       () => _i395.LoginApiClient(gh<_i361.Dio>()),
     );
+    gh.factory<_i763.PopularTrainingApiClient>(
+      () => _i763.PopularTrainingApiClient(gh<_i361.Dio>()),
+    );
     gh.factory<_i34.RegisterLocalDataSourceContract>(
       () => _i279.RegisterLocalDataSourceImpl(gh<_i517.RegisterApiClient>()),
     );
@@ -212,6 +230,11 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i646.SplashViewModel(
         gh<_i226.GetRememberMeUseCase>(),
         gh<_i554.GetFirstTimeLaunchedUseCase>(),
+      ),
+    );
+    gh.factory<_i903.PopularTrainingRemoteDataSource>(
+      () => _i439.PopularTrainingRemoteDataSourceImpl(
+        gh<_i763.PopularTrainingApiClient>(),
       ),
     );
     gh.factory<_i736.LoginRemoteDataSourceContract>(
@@ -225,13 +248,15 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i1057.RegisterUsecase>(
       () => _i1057.RegisterUsecase(gh<_i57.RegisterRepository>()),
     );
+    gh.factory<_i539.PopularTrainingRepository>(
+      () => _i234.PopularTrainingRepositoryImpl(
+        gh<_i903.PopularTrainingRemoteDataSource>(),
+      ),
+    );
     gh.factory<_i253.ForgetPasswordDataSource>(
       () => _i1058.ForgetPasswordDataSourceImpl(
         gh<_i478.ForgetPasswordApiClient>(),
       ),
-    );
-    gh.factory<_i484.ForgetPasswordRepo>(
-      () => _i569.ForgetPasswordRepoImpl(gh<_i253.ForgetPasswordDataSource>()),
     );
     gh.factory<_i902.LoginRepository>(
       () =>
@@ -257,8 +282,25 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i484.ForgetPasswordRepo>(
       () => _i569.ForgetPasswordRepoImpl(gh<_i253.ForgetPasswordDataSource>()),
     );
+    gh.factory<_i1048.GetExercisesUseCase>(
+      () => _i1048.GetExercisesUseCase(gh<_i539.PopularTrainingRepository>()),
+    );
+    gh.factory<_i548.GetLevelsUseCase>(
+      () => _i548.GetLevelsUseCase(gh<_i539.PopularTrainingRepository>()),
+    );
+    gh.factory<_i982.GetRandomMusclesUseCase>(
+      () =>
+          _i982.GetRandomMusclesUseCase(gh<_i539.PopularTrainingRepository>()),
+    );
     gh.factory<_i191.LoginUseCase>(
       () => _i191.LoginUseCase(gh<_i902.LoginRepository>()),
+    );
+    gh.factory<_i695.PopularTrainingCubit>(
+      () => _i695.PopularTrainingCubit(
+        gh<_i548.GetLevelsUseCase>(),
+        gh<_i982.GetRandomMusclesUseCase>(),
+        gh<_i1048.GetExercisesUseCase>(),
+      ),
     );
     gh.factory<_i753.LoginCubit>(
       () => _i753.LoginCubit(gh<_i191.LoginUseCase>()),
